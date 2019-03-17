@@ -1,0 +1,29 @@
+.blog-post h2 {
+  margin-bottom: 16px;
+  margin-top: 24px;
+  line-height: 1.25;
+  padding-bottom: .3em;
+}
+
+.blog-post h3 {
+  margin-bottom: 16px;
+  margin-top: 24px;
+  line-height: 1.25;
+}
+
+.blog-post p {
+  margin-bottom: 16px;
+}
+
+.blog-post li {
+  margin-bottom: 0px;
+}
+
+/* NOTE: A bug that p tag is inserted inside li tag. */
+.blog-post li p {
+  margin-bottom: 0px;
+}
+
+.blog-post li > ul {
+  margin-top: 0px;
+}
