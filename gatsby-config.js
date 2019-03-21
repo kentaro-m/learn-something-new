@@ -3,7 +3,7 @@ module.exports = {
     title: `Learn Something New`,
     author: `Kentaro Matsushita`,
     description: `Knowledge is power.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://blog.kentarom.com`,
     social: {
       twitter: `_kentaro_m`,
     },
@@ -110,6 +110,60 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-twitter`
+    `gatsby-plugin-twitter`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+      query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+      feeds: [
+        {
+          serialize: ({ query: { site, allMarkdownRemark } }) => {
+            return allMarkdownRemark.edges.map(edge => {
+              return Object.assign({}, edge.node.frontmatter, {
+                description: edge.node.excerpt,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [{ "content:encoded": edge.node.html }],
+              })
+            })
+          },
+          query: `
+            {
+              allMarkdownRemark(
+                limit: 1000,
+                sort: { order: DESC, fields: [frontmatter___date] }
+              ) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    fields { slug }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            }
+          `,
+          output: "/rss.xml",
+          title: "Learn Something New RSS Feed",
+        },
+      ],
+    },
+  }
   ],
 }
