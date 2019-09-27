@@ -1,13 +1,15 @@
-module.exports = {
-  siteMetadata: {
-    title: `Learn Something New`,
-    author: `Kentaro Matsushita`,
-    description: `Knowledge is power.`,
-    siteUrl: `https://blog.kentarom.com`,
-    social: {
-      twitter: `_kentaro_m`,
-    },
+const siteMetadata = {
+  title: `Learn Something New`,
+  author: `Kentaro Matsushita`,
+  description: `Knowledge is power.`,
+  siteUrl: `https://blog.kentarom.com`,
+  social: {
+    twitter: `_kentaro_m`,
   },
+}
+
+module.exports = {
+  siteMetadata,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -93,13 +95,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: siteMetadata.title,
+        short_name: siteMetadata.title,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#666666`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
     `gatsby-plugin-offline`,
