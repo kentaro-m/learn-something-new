@@ -1,3 +1,46 @@
+.gatsby-highlight {
+  position: relative;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  background-color: #f6f8fa;
+  border: none;
+  margin-bottom: 2.0rem;
+  padding: 2.0em 1.5em;
+}
+
+.gatsby-highlight pre[class*='language-']::before {
+  content: 'code';
+  background: #ddd;
+  border-radius: 0 0 0 4px;
+  color: #000000;
+  font-size: 0.75rem;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  padding: 0.25rem 0.4rem 0.25rem 0.5rem;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  top: 0;
+}
+
+.gatsby-highlight pre[class*='language-js']::before,
+.gatsby-highlight pre[class*='language-javascript']::before {
+  content: 'js';
+  background: #f7df1e;
+}
+
+.gatsby-highlight pre[class*='language-ts']::before,
+.gatsby-highlight pre[class*='language-typescript']::before {
+  content: 'typescript';
+  background: #007acc;
+  color: #fff;
+}
+
+:not(pre) > code[class*="language-"] {
+  border: none;
+}
+
 /* NOTE: A bug that p tag is inserted inside li tag. */
 .blog-post li p {
   margin-bottom: 0px;

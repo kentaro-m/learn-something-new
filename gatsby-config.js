@@ -31,19 +31,6 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 680,
-              quality: 70
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
@@ -77,6 +64,19 @@ module.exports = {
               // If setting this to true, the parser won't handle and highlight inline
               // code used in markdown i.e. single backtick code like `this`.
               noInlineHighlight: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 680,
+              quality: 70
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
           `gatsby-remark-copy-linked-files`,
