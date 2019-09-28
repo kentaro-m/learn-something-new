@@ -1,22 +1,43 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-
-import Bio from '../components/Bio'
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import Seo from '../components/Seo'
 import { rhythm } from '../utils/typography'
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
+type Post = {
+  node: {
+    frontmatter: {
+      title: string
+      date: string
+    }
+    fields: {
+      slug: string
+    }
+  }
+}
+
+type BlogIndexProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: Post[]
+    }
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+  }
+  location: Location
+}
+
+const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
+      <Layout location={location} title={siteTitle}>
+        <Seo
           title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <div style={{
           marginBottom: rhythm(1.5),
@@ -41,7 +62,6 @@ class BlogIndex extends React.Component {
         </div>
       </Layout>
     )
-  }
 }
 
 export default BlogIndex

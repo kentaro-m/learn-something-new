@@ -6,6 +6,7 @@ const siteMetadata = {
   social: {
     twitter: `_kentaro_m`,
   },
+  lang: 'ja'
 }
 
 module.exports = {
@@ -166,6 +167,7 @@ module.exports = {
         },
       ],
     },
-  }
+  },
+  `gatsby-plugin-typescript`
   ],
 }
