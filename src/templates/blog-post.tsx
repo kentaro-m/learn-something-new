@@ -1,19 +1,37 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import Seo from '../components/Seo'
 import { rhythm, scale } from '../utils/typography'
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+type BlogPostTemplateProps = {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        title: string
+        date: string
+      }
+      excerpt: string
+      html: string
+    }
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
+  }
+  location: Location
+}
+
+const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) => {
+    const post = data.markdownRemark
+    const siteTitle = data.site.siteMetadata.title
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <Layout location={location} title={siteTitle}>
+        <Seo title={post.frontmatter.title} description={post.excerpt} />
         <h1
           style={{
             lineHeight: rhythm(1.5),
@@ -41,7 +59,6 @@ class BlogPostTemplate extends React.Component {
         <Bio />
       </Layout>
     )
-  }
 }
 
 export default BlogPostTemplate

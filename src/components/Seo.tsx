@@ -1,16 +1,39 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
-  return (
+type Meta = {
+  name: string,
+  property: string,
+  content: string
+}
+
+type SEOProps = {
+  description?: string,
+  lang?: string,
+  meta?: Meta[],
+  keywords?: string[],
+  title?: string,
+}
+
+type Data = {
+  site: {
+    siteMetadata: {
+      title: string
+      description: string
+      author: string
+    }
+  }
+}
+
+const Seo = ({ description, lang, title }: SEOProps) => (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
+      render={(data: Data) => {
         const metaDescription =
           description || data.site.siteMetadata.description
         return (
+          // @ts-ignore
           <Helmet
             htmlAttributes={{
               lang,
@@ -50,38 +73,14 @@ function SEO({ description, lang, meta, keywords, title }) {
                 name: `twitter:description`,
                 content: metaDescription,
               },
-            ]
-              .concat(
-                keywords.length > 0
-                  ? {
-                      name: `keywords`,
-                      content: keywords.join(`, `),
-                    }
-                  : []
-              )
-              .concat(meta)}
+            ]}
           />
         )
       }}
     />
   )
-}
 
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  keywords: [],
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
-}
-
-export default SEO
+export default Seo
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
@@ -90,6 +89,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        lang
       }
     }
   }
