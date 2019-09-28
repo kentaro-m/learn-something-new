@@ -22,6 +22,8 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
           ...scale(1.0),
           marginBottom: rhythm(1.5),
           marginTop: 0,
+          fontWeight: 800,
+          borderBottom: 'none'
         }}
       >
         <Link
@@ -42,6 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
         style={{
           fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
+          fontWeight: 800
         }}
       >
         <Link

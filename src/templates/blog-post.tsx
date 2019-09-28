@@ -34,7 +34,9 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
         <Seo title={post.frontmatter.title} description={post.excerpt} />
         <h1
           style={{
+            ...scale(0.75),
             lineHeight: rhythm(1.5),
+            fontWeight: 600
           }}
         >
           {post.frontmatter.title}
