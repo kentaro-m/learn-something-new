@@ -36,9 +36,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
 
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo
-          title="All posts"
-        />
+        <Seo />
         <div style={{
           marginBottom: rhythm(1.5),
         }}>
