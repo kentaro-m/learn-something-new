@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
+import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
 
 type Post = {
@@ -38,7 +39,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
       <Layout location={location} title={siteTitle}>
         <Seo />
         <div style={{
-          marginBottom: rhythm(1.5),
+          marginBottom: rhythm(0.8),
         }}>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
@@ -58,6 +59,18 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
             )
           })}
         </div>
+        <div
+          style={{
+            textAlign: 'center',
+            fontSize: '2.5rem',
+            marginBottom: rhythm(1.5),
+            padding: '0',
+            lineHeight: '1.0',
+          }}
+        >
+          ...
+        </div>
+        <Bio/>
       </Layout>
     )
 }

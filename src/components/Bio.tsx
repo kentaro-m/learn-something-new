@@ -14,7 +14,6 @@ function Bio() {
           <div
             style={{
               display: `flex`,
-              marginBottom: rhythm(2.5),
             }}
           >
             <Image
@@ -31,8 +30,34 @@ function Bio() {
               }}
             />
             <p>
-              <strong><a href='https://kentarom.com/'>{author}</a></strong><br/>
-              金沢で働くソフトウェアエンジニアです。最近はAWS、Node.js、Javaをよく触ってます。
+              <a
+                href='https://kentarom.com/'
+                style={{
+                  fontSize: '1.1rem',
+                  marginBottom: '.2em',
+                  display: 'block',
+                }}
+              >
+                {author}
+              </a>
+              <p
+                style={{
+                  fontSize: '0.9rem',
+                  display: 'block',
+                  margin: '0'
+                }}
+              >
+                👨‍💻金沢のゲーム会社で働くフロントエンドエンジニア
+              </p>
+              <p
+                style={{
+                  fontSize: '0.9rem',
+                  display: 'block',
+                  margin: '0'
+                }}
+              >
+                ❤️React, TypeScript, Clean Architecture and Micro Frontends.
+              </p>
             </p>
           </div>
         )

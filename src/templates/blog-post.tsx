@@ -52,12 +52,17 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
           {post.frontmatter.date}
         </p>
         <div className='blog-post' dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
+        <div
           style={{
-            marginTop: rhythm(1),
-            marginBottom: rhythm(1),
+            textAlign: 'center',
+            fontSize: '2.5rem',
+            marginBottom: rhythm(1.5),
+            padding: '0',
+            lineHeight: '1.0',
           }}
-        />
+        >
+          ...
+        </div>
         <Bio />
       </Layout>
     )
