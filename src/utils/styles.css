@@ -1,3 +1,4 @@
+/* Syntax highlight */
 .gatsby-highlight {
   position: relative;
 }
@@ -39,6 +40,33 @@
 
 :not(pre) > code[class*="language-"] {
   border: none;
+}
+
+/* Dark mode */
+.light-theme {
+  background: #fff;
+  color: #333;
+}
+
+.dark-theme {
+  background: #15202B;
+  color: #ddd
+}
+
+.dark-theme a {
+  color: #1DA1F2
+}
+
+.dark-mode-toggle.react-toggle--checked .react-toggle-track {
+  background-color: #1DA1F2;
+}
+
+.dark-mode-toggle.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #1DA1F2;
+}
+
+.dark-mode-toggle.react-toggle--checked .react-toggle-thumb {
+  border-color: #1DA1F2;
 }
 
 /* NOTE: A bug that p tag is inserted inside li tag. */
