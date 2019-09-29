@@ -29,7 +29,7 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <p>
+            <div>
               <a
                 href='https://kentarom.com/'
                 style={{
@@ -58,7 +58,7 @@ function Bio() {
               >
                 ❤️React, TypeScript, Clean Architecture and Micro Frontends.
               </p>
-            </p>
+            </div>
           </div>
         )
       }}
