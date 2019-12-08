@@ -4,7 +4,7 @@
 }
 
 .gatsby-highlight pre[class*="language-"] {
-  background-color: #f6f8fa;
+  /* background-color: #f6f8fa; */
   border: none;
   margin-bottom: 2.0rem;
   padding: 2.0em 1.5em;
