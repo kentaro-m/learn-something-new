@@ -4,6 +4,17 @@ import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import Bio from '../components/Bio'
 import { rhythm } from '../utils/typography'
+import styled from '@emotion/styled'
+
+const BlogIndexWrapper = styled.div`
+  margin-bottom: ${rhythm(0.8)};
+`
+
+const PostWrapper = styled.div``
+
+const PostTitle = styled.h3`
+  margin-bottom: ${rhythm(1 / 4)};
+`
 
 type Post = {
   node: {
@@ -38,27 +49,21 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo />
-        <div style={{
-          marginBottom: rhythm(0.8),
-        }}>
+        <BlogIndexWrapper>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <div key={node.fields.slug}>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
+              <PostWrapper key={node.fields.slug}>
+                <PostTitle>
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                     {title}
                   </Link>
-                </h3>
+                </PostTitle>
                 <small>{node.frontmatter.date}</small>
-              </div>
+              </PostWrapper>
             )
           })}
-        </div>
+        </BlogIndexWrapper>
         <div
           style={{
             textAlign: 'center',

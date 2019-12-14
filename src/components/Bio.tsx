@@ -1,8 +1,25 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-
+import styled from '@emotion/styled'
 import { rhythm } from '../utils/typography'
+
+const BioWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const AuthorLink = styled.a`
+  font-size: 1.1rem;
+  margin-bottom: .2em;
+  display: block;
+`
+
+const DescriptionText = styled.p`
+  font-size: 0.9rem;
+  display: block;
+  margin: 0;
+`
 
 function Bio() {
   return (
@@ -11,11 +28,7 @@ function Bio() {
       render={data => {
         const { author } = data.site.siteMetadata
         return (
-          <div
-            style={{
-              display: `flex`,
-            }}
-          >
+          <BioWrapper>
             <Image
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
@@ -30,36 +43,17 @@ function Bio() {
               }}
             />
             <div>
-              <a
-                href='https://kentarom.com/'
-                style={{
-                  fontSize: '1.1rem',
-                  marginBottom: '.2em',
-                  display: 'block',
-                }}
-              >
+              <AuthorLink href='https://kentarom.com/'>
                 {author}
-              </a>
-              <p
-                style={{
-                  fontSize: '0.9rem',
-                  display: 'block',
-                  margin: '0'
-                }}
-              >
+              </AuthorLink>
+              <DescriptionText>
                 👨‍💻金沢のゲーム会社で働くフロントエンドエンジニア
-              </p>
-              <p
-                style={{
-                  fontSize: '0.9rem',
-                  display: 'block',
-                  margin: '0'
-                }}
-              >
+              </DescriptionText>
+              <DescriptionText>
                 ❤️React, TypeScript, Clean Architecture and Micro Frontends.
-              </p>
+              </DescriptionText>
             </div>
-          </div>
+          </BioWrapper>
         )
       }}
     />
