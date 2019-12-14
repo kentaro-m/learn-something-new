@@ -22,6 +22,7 @@ type Data = {
       title: string
       description: string
       author: string
+      lang: string
     }
   }
 }
@@ -33,10 +34,9 @@ const Seo = ({ description, lang, title }: SEOProps) => (
         const metaDescription =
           description || data.site.siteMetadata.description
         return (
-          // @ts-ignore
           <Helmet
             htmlAttributes={{
-              lang,
+              lang: data.site.siteMetadata.lang,
             }}
             title={title ? title : data.site.siteMetadata.title}
             titleTemplate={title ? `%s | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title}
