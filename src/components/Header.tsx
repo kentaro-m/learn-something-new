@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Toggle from 'react-toggle'
+import DarkModeToggle from 'react-toggle'
 import useDarkMode from "use-dark-mode"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { rhythm, scale } from '../utils/typography'
 import { mq } from '../style/media-queries'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
 library.add(faMoon, faSun)
 
@@ -27,6 +28,36 @@ const BlogTitle = styled.h1`
   ${mq[0]} {
     font-size: ${scale(1.0).fontSize};
   }
+`
+
+const DarkModeWrapper = styled.div`
+  display: flex;
+  flex-flow: column;
+  margin-top: -${rhythm(0.40)};
+  ${mq[0]} {
+    justify-content: space-between;
+    flex-flow: row;
+    margin-top: 13px;
+  }
+`
+
+const DarkModeLabel = styled.label`
+  font-size: ${scale(-0.2).fontSize};
+  margin-bottom: ${rhythm(0.25)};
+  ${mq[0]} {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+`
+
+const checkedIconStyle = css`
+  font-size: 12px;
+  color: #fff;
+`
+
+const uncheckedIconStyle = css`
+  font-size: 12px;
+  color: #fff;
 `
 
 type HeaderProps = {
@@ -58,21 +89,20 @@ const Header: React.FC<HeaderProps> = ({ location, title }) => {
             {title}
           </Link>
         </BlogTitle>
-        <label
-          style={{
-            marginTop: '10px'
-          }}
-        >
-          <Toggle
-            className='dark-mode-toggle'
+        <DarkModeWrapper>
+          <DarkModeLabel htmlFor='dark-mode-toggle'>
+            ダークモード
+          </DarkModeLabel>
+          <DarkModeToggle
+            id='dark-mode-toggle'
             checked={darkMode.value}
             onChange={darkMode.toggle}
             icons={{
-              checked: <FontAwesomeIcon icon={faMoon} style={{ fontSize: '12px', color: '#fff' }} />,
-              unchecked: <FontAwesomeIcon icon={faSun} style={{ fontSize: '12px', color: '#fff' }} />
+              checked: <FontAwesomeIcon icon={faMoon} css={checkedIconStyle} />,
+              unchecked: <FontAwesomeIcon icon={faSun} css={uncheckedIconStyle} />
             }}
           />
-        </label>
+        </DarkModeWrapper>
       </HeaderWrapper>
     )
   } else {
@@ -81,8 +111,9 @@ const Header: React.FC<HeaderProps> = ({ location, title }) => {
         <h3
           style={{
             fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-            fontWeight: 800
+            fontWeight: 800,
+            marginTop: '10px',
+            marginBottom: '0px',
           }}
         >
           <Link
@@ -96,21 +127,20 @@ const Header: React.FC<HeaderProps> = ({ location, title }) => {
             {title}
           </Link>
         </h3>
-        <label
-          style={{
-            marginTop: '3px'
-          }}
-        >
-          <Toggle
-            className='dark-mode-toggle'
+        <DarkModeWrapper>
+          <DarkModeLabel htmlFor='dark-mode-toggle'>
+            ダークモード
+          </DarkModeLabel>
+          <DarkModeToggle
+            id='dark-mode-toggle'
             checked={darkMode.value}
             onChange={darkMode.toggle}
             icons={{
-              checked: <FontAwesomeIcon icon={faMoon} style={{ fontSize: '12px', color: '#fff' }} />,
-              unchecked: <FontAwesomeIcon icon={faSun} style={{ fontSize: '12px', color: '#fff' }} />
+              checked: <FontAwesomeIcon icon={faMoon} css={checkedIconStyle} />,
+              unchecked: <FontAwesomeIcon icon={faSun} css={uncheckedIconStyle} />
             }}
           />
-        </label>
+        </DarkModeWrapper>
       </HeaderWrapper>
     )
   }

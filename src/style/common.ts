@@ -16,18 +16,6 @@ export const darkModeStyle = css`
   .dark-theme a {
     color: #1DA1F2
   }
-
-  .dark-mode-toggle.react-toggle--checked .react-toggle-track {
-    background-color: #1DA1F2;
-  }
-
-  .dark-mode-toggle.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-    background-color: #1DA1F2;
-  }
-
-  .dark-mode-toggle.react-toggle--checked .react-toggle-thumb {
-    border-color: #1DA1F2;
-  }
 `
 
 export const syntaxHighlightStyle = css`
@@ -334,26 +322,27 @@ export const toggleStyle = css`
   }
 
   .react-toggle-track {
+    position: relative;
     width: 50px;
     height: 24px;
     padding: 0;
     border-radius: 30px;
-    background-color: #4D4D4D;
+    background-color: #15202B;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
 
-  .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-    background-color: #000000;
-  }
-
   .react-toggle--checked .react-toggle-track {
-    background-color: #19AB27;
+    background-color: #1DA1F2;
   }
 
   .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-    background-color: #128D15;
+    background-color: #1DA1F2;
+  }
+
+  .react-toggle--checked .react-toggle-thumb {
+    border-color: #1DA1F2;
   }
 
   .react-toggle-track-check {
@@ -361,6 +350,9 @@ export const toggleStyle = css`
     width: 14px;
     height: 10px;
     top: 0px;
+    ${mq[0]} {
+      top: -2px;
+    }
     bottom: 0px;
     margin-top: auto;
     margin-bottom: auto;
@@ -383,12 +375,16 @@ export const toggleStyle = css`
     position: absolute;
     width: 10px;
     height: 10px;
-    top: 0px;
+    top: -2px;
+    right: 10px;
+    ${mq[0]} {
+      top: -2px;
+      right: 10px;
+    }
     bottom: 0px;
     margin-top: auto;
     margin-bottom: auto;
     line-height: 0;
-    right: 10px;
     opacity: 1;
     -webkit-transition: opacity 0.25s ease;
     -moz-transition: opacity 0.25s ease;
