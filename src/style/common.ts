@@ -1,4 +1,6 @@
 import { css } from '@emotion/core'
+import { scale } from '../utils/typography'
+import { mq } from '../style/media-queries'
 
 export const darkModeStyle = css`
   .light-theme {
@@ -71,6 +73,11 @@ export const syntaxHighlightStyle = css`
     border: none;
   }
 
+  p > code[class*="language-"] {
+    padding: 0.2rem 0.25rem;
+    margin: 0 0.25rem;
+  }
+
   code[class*="language-"],
   pre[class*="language-"] {
     text-align: left;
@@ -81,7 +88,10 @@ export const syntaxHighlightStyle = css`
     color: #c3cee3;
     background: #263238;
     font-family: Roboto Mono, monospace;
-    font-size: 1em;
+    font-size: ${scale(-0.25).fontSize};
+    ${mq[0]} {
+      font-size: ${scale(-0.2).fontSize};
+    }
     line-height: 1.5em;
 
     -moz-tab-size: 4;

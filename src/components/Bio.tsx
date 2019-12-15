@@ -2,23 +2,51 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from '@emotion/styled'
-import { rhythm } from '../utils/typography'
+import { rhythm, scale } from '../utils/typography'
+import { mq } from '../style/media-queries'
+import { css } from '@emotion/core'
 
 const BioWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  display: block;
+  ${mq[0]} {
+    display: flex;
+    justify-content: center;
+  }
 `
 
 const AuthorLink = styled.a`
-  font-size: 1.1rem;
+  font-size: ${scale(0.1).fontSize};
   margin-bottom: .2em;
   display: block;
+  ${mq[0]} {
+    font-size: ${scale(0.1).fontSize};
+  }
 `
 
 const DescriptionText = styled.p`
-  font-size: 0.9rem;
+  font-size: ${scale(-0.1).fontSize};
   display: block;
   margin: 0;
+  ${mq[0]} {
+    font-size: ${scale(-0.1).fontSize};
+  }
+`
+
+const imageWrapperStyle = css`
+  display: block !important;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  ${mq[0]} {
+    margin 0;
+    margin-right: ${rhythm(1 / 2)};
+    margin-bottom: 0;
+    min-width: 50;
+    border-radius: 100%;
+  }
+`
+
+const imageStyle = css`
+  border-radius: 50%;
 `
 
 function Bio() {
@@ -32,25 +60,17 @@ function Bio() {
             <Image
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
+              css={[imageWrapperStyle, imageStyle]}
             />
             <div>
               <AuthorLink href='https://kentarom.com/'>
                 {author}
               </AuthorLink>
               <DescriptionText>
-                👨‍💻金沢のゲーム会社で働くフロントエンドエンジニア
+                👨‍💻 金沢のゲーム会社で働くフロントエンドエンジニア
               </DescriptionText>
               <DescriptionText>
-                ❤️React, TypeScript, Clean Architecture and Micro Frontends.
+                ❤️ React, TypeScript and Micro Frontends
               </DescriptionText>
             </div>
           </BioWrapper>
@@ -64,7 +84,7 @@ const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/avatar.jpeg/" }) {
       childImageSharp {
-        fixed(width: 75, height: 75) {
+        fixed(width: 100, height: 100) {
           ...GatsbyImageSharpFixed
         }
       }

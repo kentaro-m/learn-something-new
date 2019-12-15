@@ -6,6 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { rhythm, scale } from '../utils/typography'
+import { mq } from '../style/media-queries'
 import styled from '@emotion/styled'
 
 library.add(faMoon, faSun)
@@ -17,12 +18,15 @@ const HeaderWrapper = styled.div`
 
 const BlogTitle = styled.h1`
   font-family: Montserrat, sans-serif;
-  font-size: ${scale(1.0).fontSize};
+  font-size: ${scale(0.5).fontSize};
   line-height: ${scale(1.0).lineHeight};
   margin-bottom: ${rhythm(1.5)};
   margin-top: 0;
   font-weight: 800;
   border-bottom: none;
+  ${mq[0]} {
+    font-size: ${scale(1.0).fontSize};
+  }
 `
 
 type HeaderProps = {
