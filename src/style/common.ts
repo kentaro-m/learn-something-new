@@ -174,7 +174,7 @@ export const syntaxHighlightStyle = css`
   }
 
   .token.comment {
-    color: #546e7a;
+    color: #B1C2C8;
   }
 
   .token.constant {
