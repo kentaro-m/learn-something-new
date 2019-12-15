@@ -7,10 +7,15 @@ import { rhythm, scale } from '../utils/typography'
 import styled from '@emotion/styled'
 import { syntaxHighlightStyle } from '../style/common'
 import { css } from '@emotion/core'
+import { mq } from '../style/media-queries'
 
 const PostTitle = styled.h1`
-  font-size: ${scale(0.75).fontSize};
-  line-height: ${scale(0.75).lineHeight};
+  font-size: ${scale(0.6).fontSize};
+  line-height: ${scale(0.50).lineHeight};
+  ${mq[0]} {
+    font-size: ${scale(0.75).fontSize};
+    line-height: ${scale(0.75).lineHeight};
+  }
   font-weight: 600;
 `
 
@@ -102,7 +107,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
       }
     }
   }
