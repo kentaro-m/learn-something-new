@@ -38,6 +38,12 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              usePrefix: ["slide"],
+            }
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
