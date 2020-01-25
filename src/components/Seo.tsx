@@ -14,6 +14,7 @@ type SEOProps = {
   meta?: Meta[],
   keywords?: string[],
   title?: string,
+  slug?: string,
 }
 
 type Data = {
@@ -23,16 +24,18 @@ type Data = {
       description: string
       author: string
       lang: string
+      siteUrl: string
     }
   }
 }
 
-const Seo = ({ description, lang, title }: SEOProps) => (
+const Seo = ({ description, lang, title, slug }: SEOProps) => (
     <StaticQuery
       query={detailsQuery}
       render={(data: Data) => {
         const metaDescription =
           description || data.site.siteMetadata.description
+        const siteUrl = data.site.siteMetadata.siteUrl
         return (
           <Helmet
             htmlAttributes={{
@@ -52,6 +55,10 @@ const Seo = ({ description, lang, title }: SEOProps) => (
               {
                 property: `og:description`,
                 content: metaDescription,
+              },
+              {
+                property: `og:image`,
+                content: slug ? siteUrl + slug + 'thumbnail.png' : siteUrl + '/thumbnail.png',
               },
               {
                 property: `og:type`,

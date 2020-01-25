@@ -1,0 +1,11 @@
+{
+  "name": "gatsby-remark-og-image",
+  "version": "0.0.1",
+  "description": "Gatsby Remark plugin to generate Open Graph images.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kentaro Matsushita",
+  "license": "MIT"
+}

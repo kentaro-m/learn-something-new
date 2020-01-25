@@ -94,6 +94,53 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          {
+            resolve: `gatsby-remark-og-image`,
+            options: {
+              image: {
+                width: 1200,
+                height: 630,
+                backgroundColor: '#15202B',
+                outputFileName: 'thumbnail.png'
+              },
+              style: {
+                title: {
+                  fontFamily: 'Noto Sans CJK JP',
+                  fontColor: '#1DA1F2',
+                  fontWeight: 'bold',
+                  fontSize: 64,
+                  paddingTop: 100,
+                  paddingBottom: 200,
+                  paddingLeft: 150,
+                  paddingRight: 150,
+                },
+                author: {
+                  fontFamily: 'Noto Sans CJK JP',
+                  fontColor: '#DDDDDD',
+                  fontWeight: '400',
+                  fontSize: 42,
+                }
+              },
+              meta: {
+                title: '',
+                author: 'kentaro (@_kentaro_m)'
+              },
+              fontFile: [
+                {
+                  path: require.resolve('./src/assets/fonts/NotoSansCJKjp-Bold.otf'),
+                  family: 'Noto Sans CJK JP',
+                  weight: 'bold',
+                },
+                {
+                  path: require.resolve('./src/assets/fonts/NotoSansCJKjp-Regular.otf'),
+                  family: 'Noto Sans CJK JP',
+                  weight: '400',
+                },
+              ],
+              iconFile: require.resolve('./content/assets/avatar.jpeg'),
+              timeout: 10000,
+            },
+          },
         ],
       },
     },

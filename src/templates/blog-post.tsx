@@ -49,6 +49,9 @@ type BlogPostTemplateProps = {
         title: string
         date: string
       }
+      fields: {
+        slug: string
+      }
       excerpt: string
       html: string
     }
@@ -67,7 +70,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
 
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title={post.frontmatter.title} description={post.excerpt} />
+        <Seo title={post.frontmatter.title} description={post.excerpt} slug={post.fields.slug} />
         <PostTitle>
           {post.frontmatter.title}
         </PostTitle>
@@ -108,6 +111,9 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
+      }
+      fields {
+        slug
       }
     }
   }
