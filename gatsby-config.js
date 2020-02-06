@@ -40,7 +40,7 @@ module.exports = {
           {
             resolve: `@raae/gatsby-remark-oembed`,
             options: {
-              usePrefix: ["slide"],
+              usePrefix: ["slide", "oembed"],
             }
           },
           {
