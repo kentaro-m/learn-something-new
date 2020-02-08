@@ -28,6 +28,7 @@ type Data = {
       social: {
         twitter: string
       }
+      facebookAppId: string
     }
   }
 }
@@ -88,6 +89,10 @@ const Seo = ({ description, title, slug}: SEOProps) => (
                 content: `website`,
               },
               {
+                property: `fb:app_id`,
+                content: site.siteMetadata.facebookAppId,
+              },
+              {
                 name: `twitter:card`,
                 content: `summary_large_image`,
               },
@@ -128,6 +133,7 @@ const detailsQuery = graphql`
         social {
           twitter
         }
+        facebookAppId
       }
     }
   }

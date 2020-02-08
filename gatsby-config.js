@@ -6,7 +6,8 @@ const siteMetadata = {
   social: {
     twitter: `_kentaro_m`,
   },
-  lang: 'ja'
+  lang: 'ja',
+  facebookAppId: '507266919989961',
 }
 
 module.exports = {
