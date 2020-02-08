@@ -25,6 +25,9 @@ type Data = {
       author: string
       lang: string
       siteUrl: string
+      social: {
+        twitter: string
+      }
     }
   }
 }
@@ -87,7 +90,7 @@ const Seo = ({ description, title, slug}: SEOProps) => (
               },
               {
                 name: `twitter:creator`,
-                content: site.siteMetadata.author,
+                content: `@${site.siteMetadata.social.twitter}`,
               },
               {
                 name: `twitter:title`,
@@ -115,6 +118,9 @@ const detailsQuery = graphql`
         author
         lang
         siteUrl
+        social {
+          twitter
+        }
       }
     }
   }
