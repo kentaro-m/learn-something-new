@@ -69,6 +69,10 @@ const Seo = ({ description, title, pageURL}: SEOProps) => (
                 content: `summary_large_image`,
               },
               {
+                name: `twitter:image`,
+                content: pageURL + 'thumbnail.png',
+              },
+              {
                 name: `twitter:creator`,
                 content: data.site.siteMetadata.author,
               },
