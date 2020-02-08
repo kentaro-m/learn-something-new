@@ -14,6 +14,7 @@ type SEOProps = {
   meta?: Meta[],
   keywords?: string[],
   title?: string,
+  slug?: string,
 }
 
 type Data = {
@@ -23,27 +24,45 @@ type Data = {
       description: string
       author: string
       lang: string
+      siteUrl: string
+      social: {
+        twitter: string
+      }
+      facebookAppId: string
     }
   }
 }
 
-const Seo = ({ description, lang, title }: SEOProps) => (
+const Seo = ({ description, title, slug}: SEOProps) => (
     <StaticQuery
       query={detailsQuery}
-      render={(data: Data) => {
+      render={({ site }: Data) => {
         const metaDescription =
-          description || data.site.siteMetadata.description
+          description || site.siteMetadata.description
+        const pageUrl = slug ? site.siteMetadata.siteUrl + slug : site.siteMetadata.siteUrl + '/'
+        const thumbnailUrl = slug ? site.siteMetadata.siteUrl + slug + 'thumbnail.png' : site.siteMetadata.siteUrl + '/thumbnail.png'
         return (
           <Helmet
             htmlAttributes={{
-              lang: data.site.siteMetadata.lang,
+              lang: site.siteMetadata.lang,
             }}
-            title={title ? title : data.site.siteMetadata.title}
-            titleTemplate={title ? `%s | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title}
+            title={title ? title : site.siteMetadata.title}
+            titleTemplate={title ? `%s | ${site.siteMetadata.title}` : site.siteMetadata.title}
+            link={[
+              {
+                rel: 'canonical',
+                key: pageUrl,
+                href: pageUrl,    
+              }    
+            ]}
             meta={[
               {
                 name: `description`,
                 content: metaDescription,
+              },
+              {
+                name: `og:url`,
+                content: pageUrl,
               },
               {
                 property: `og:title`,
@@ -54,16 +73,36 @@ const Seo = ({ description, lang, title }: SEOProps) => (
                 content: metaDescription,
               },
               {
+                property: `og:image`,
+                content: thumbnailUrl,
+              },
+              {
+                property: `og:image:width`,
+                content: `1200`,
+              },
+              {
+                property: `og:image:height`,
+                content: `630`,
+              },
+              {
                 property: `og:type`,
                 content: `website`,
               },
               {
+                property: `fb:app_id`,
+                content: site.siteMetadata.facebookAppId,
+              },
+              {
                 name: `twitter:card`,
-                content: `summary`,
+                content: `summary_large_image`,
+              },
+              {
+                name: `twitter:image`,
+                content: thumbnailUrl,
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
+                content: `@${site.siteMetadata.social.twitter}`,
               },
               {
                 name: `twitter:title`,
@@ -90,6 +129,11 @@ const detailsQuery = graphql`
         description
         author
         lang
+        siteUrl
+        social {
+          twitter
+        }
+        facebookAppId
       }
     }
   }
