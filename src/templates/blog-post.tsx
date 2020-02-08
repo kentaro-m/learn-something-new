@@ -70,7 +70,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
 
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title={post.frontmatter.title} description={post.excerpt} slug={post.fields.slug} />
+        <Seo title={post.frontmatter.title} description={post.excerpt} slug={post.fields.slug} pageURL={location.href} />
         <PostTitle>
           {post.frontmatter.title}
         </PostTitle>

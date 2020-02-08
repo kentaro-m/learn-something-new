@@ -97,11 +97,14 @@ module.exports = {
           {
             resolve: `gatsby-remark-og-image`,
             options: {
+              output: {
+                directory: '',
+                fileName: 'thumbnail.png'
+              },
               image: {
                 width: 1200,
                 height: 630,
                 backgroundColor: '#15202B',
-                outputFileName: 'thumbnail.png'
               },
               style: {
                 title: {
@@ -123,7 +126,7 @@ module.exports = {
               },
               meta: {
                 title: '',
-                author: 'kentaro (@_kentaro_m)'
+                author: 'matsuken (@_kentaro_m)'
               },
               fontFile: [
                 {

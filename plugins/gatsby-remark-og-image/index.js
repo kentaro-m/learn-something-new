@@ -1,13 +1,16 @@
 const generateOpenGraphImage = require('generate-og-image')
 
 module.exports = async ({ markdownNode, markdownAST }, pluginOptions) => {
-  const outputFileName = `./public${markdownNode.fields.slug}${pluginOptions.image.outputFileName}`
-
-  await generateOpenGraphImage({
+  
+  const result = await generateOpenGraphImage({
     ...pluginOptions,
+    output: {
+      ...pluginOptions.output,
+      directory: `./public${markdownNode.fields.slug}`,
+      fileName: pluginOptions.output.fileName,
+    },
     image: {
       ...pluginOptions.image,
-      outputFileName,
     },
     meta: {
       ...pluginOptions.meta,
@@ -15,7 +18,7 @@ module.exports = async ({ markdownNode, markdownAST }, pluginOptions) => {
     }
   })
 
-  console.info(`Generated an image: ${outputFileName}`)
+  console.info(`gatsby-remark-og-image: Successful generated: ${result}`)
 
   return markdownAST
 }
