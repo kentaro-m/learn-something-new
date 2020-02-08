@@ -47,6 +47,13 @@ const Seo = ({ description, title, slug}: SEOProps) => (
             }}
             title={title ? title : site.siteMetadata.title}
             titleTemplate={title ? `%s | ${site.siteMetadata.title}` : site.siteMetadata.title}
+            link={[
+              {
+                rel: 'canonical',
+                key: pageUrl,
+                href: pageUrl,    
+              }    
+            ]}
             meta={[
               {
                 name: `description`,
