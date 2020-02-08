@@ -34,7 +34,7 @@
     "gatsby-source-filesystem": "^2.1.42",
     "gatsby-transformer-remark": "^2.6.42",
     "gatsby-transformer-sharp": "^2.3.9",
-    "generate-og-image": "github:kentaro-m/generate-og-image#fix-problem-for-not-working-generate-images",
+    "generate-og-image": "github:kentaro-m/generate-og-image",
     "prismjs": "^1.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
