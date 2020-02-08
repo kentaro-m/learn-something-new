@@ -61,6 +61,14 @@ const Seo = ({ description, title, pageURL}: SEOProps) => (
                 content: pageURL + 'thumbnail.png',
               },
               {
+                property: `og:image:width`,
+                content: `1200`,
+              },
+              {
+                property: `og:image:height`,
+                content: `630`,
+              },
+              {
                 property: `og:type`,
                 content: `website`,
               },
