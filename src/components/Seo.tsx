@@ -9,7 +9,6 @@ type Meta = {
 }
 
 type SEOProps = {
-  pageURL: string,
   description?: string,
   lang?: string,
   meta?: Meta[],
@@ -30,19 +29,19 @@ type Data = {
   }
 }
 
-const Seo = ({ description, title, pageURL}: SEOProps) => (
+const Seo = ({ description, title, slug}: SEOProps) => (
     <StaticQuery
       query={detailsQuery}
-      render={(data: Data) => {
+      render={({ site }: Data) => {
         const metaDescription =
-          description || data.site.siteMetadata.description
+          description || site.siteMetadata.description
         return (
           <Helmet
             htmlAttributes={{
-              lang: data.site.siteMetadata.lang,
+              lang: site.siteMetadata.lang,
             }}
-            title={title ? title : data.site.siteMetadata.title}
-            titleTemplate={title ? `%s | ${data.site.siteMetadata.title}` : data.site.siteMetadata.title}
+            title={title ? title : site.siteMetadata.title}
+            titleTemplate={title ? `%s | ${site.siteMetadata.title}` : site.siteMetadata.title}
             meta={[
               {
                 name: `description`,
@@ -58,7 +57,7 @@ const Seo = ({ description, title, pageURL}: SEOProps) => (
               },
               {
                 property: `og:image`,
-                content: pageURL + 'thumbnail.png',
+                content: slug ? site.siteMetadata.siteUrl + slug + 'thumbnail.png' : site.siteMetadata.siteUrl + '/thumbnail.png',
               },
               {
                 property: `og:image:width`,
@@ -78,11 +77,11 @@ const Seo = ({ description, title, pageURL}: SEOProps) => (
               },
               {
                 name: `twitter:image`,
-                content: pageURL + 'thumbnail.png',
+                content: slug ? site.siteMetadata.siteUrl + slug + 'thumbnail.png' : site.siteMetadata.siteUrl + '/thumbnail.png',
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
+                content: site.siteMetadata.author,
               },
               {
                 name: `twitter:title`,
@@ -109,6 +108,7 @@ const detailsQuery = graphql`
         description
         author
         lang
+        siteUrl
       }
     }
   }
