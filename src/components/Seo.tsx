@@ -35,6 +35,8 @@ const Seo = ({ description, title, slug}: SEOProps) => (
       render={({ site }: Data) => {
         const metaDescription =
           description || site.siteMetadata.description
+        const pageUrl = slug ? site.siteMetadata.siteUrl + slug : site.siteMetadata.siteUrl + '/'
+        const thumbnailUrl = slug ? site.siteMetadata.siteUrl + slug + 'thumbnail.png' : site.siteMetadata.siteUrl + '/thumbnail.png'
         return (
           <Helmet
             htmlAttributes={{
@@ -48,6 +50,10 @@ const Seo = ({ description, title, slug}: SEOProps) => (
                 content: metaDescription,
               },
               {
+                name: `og:url`,
+                content: pageUrl,
+              },
+              {
                 property: `og:title`,
                 content: title,
               },
@@ -57,7 +63,7 @@ const Seo = ({ description, title, slug}: SEOProps) => (
               },
               {
                 property: `og:image`,
-                content: slug ? site.siteMetadata.siteUrl + slug + 'thumbnail.png' : site.siteMetadata.siteUrl + '/thumbnail.png',
+                content: thumbnailUrl,
               },
               {
                 property: `og:image:width`,
@@ -77,7 +83,7 @@ const Seo = ({ description, title, slug}: SEOProps) => (
               },
               {
                 name: `twitter:image`,
-                content: slug ? site.siteMetadata.siteUrl + slug + 'thumbnail.png' : site.siteMetadata.siteUrl + '/thumbnail.png',
+                content: thumbnailUrl,
               },
               {
                 name: `twitter:creator`,
