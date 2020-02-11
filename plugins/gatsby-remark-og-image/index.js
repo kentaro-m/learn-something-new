@@ -1,16 +1,13 @@
-const generateOpenGraphImage = require('generate-og-image')
+const catchy = require('catchy-image')
 
-module.exports = async ({ markdownNode, markdownAST }, pluginOptions) => {
+module.exports = async ({ markdownNode }, pluginOptions) => {
   
-  const result = await generateOpenGraphImage({
+  const result = await catchy.generate({
     ...pluginOptions,
     output: {
       ...pluginOptions.output,
       directory: `./public${markdownNode.fields.slug}`,
       fileName: pluginOptions.output.fileName,
-    },
-    image: {
-      ...pluginOptions.image,
     },
     meta: {
       ...pluginOptions.meta,
@@ -19,6 +16,4 @@ module.exports = async ({ markdownNode, markdownAST }, pluginOptions) => {
   })
 
   console.info(`gatsby-remark-og-image: Successful generated: ${result}`)
-
-  return markdownAST
 }
