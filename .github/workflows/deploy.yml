@@ -28,7 +28,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       
       - name: Post a QR code for deploy url to the pull request
-        uses: kentaro-m/qr-code-commenter-action@v0.1.1
+        uses: kentaro-m/qr-code-commenter-action@245741e
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           content: ${{ steps.deploy-to-netlify.outputs.deploy-url }}
