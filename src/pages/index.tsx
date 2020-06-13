@@ -10,7 +10,9 @@ const BlogIndexWrapper = styled.div`
   margin-bottom: ${rhythm(0.8)};
 `
 
-const PostWrapper = styled.div``
+const PostWrapper = styled.div`
+  margin-bottom: ${rhythm(1.75)};
+`
 
 const PostTitle = styled.h3`
   margin-bottom: ${rhythm(1 / 4)};

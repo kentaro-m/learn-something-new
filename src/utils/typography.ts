@@ -3,7 +3,7 @@ import githubTheme from 'typography-theme-github'
 
 githubTheme.overrideThemeStyles = () => ({
   a: {
-    color: '#0366d6'
+    color: '#1a85dc'
   },
   h2: {
     margin: '1.5rem 0',
