@@ -105,12 +105,12 @@ module.exports = {
               image: {
                 width: 1200,
                 height: 630,
-                backgroundColor: '#15202B',
+                backgroundColor: '#091519',
               },
               style: {
                 title: {
                   fontFamily: 'Noto Sans CJK JP',
-                  fontColor: '#1DA1F2',
+                  fontColor: '#57c4e1',
                   fontWeight: 'bold',
                   fontSize: 64,
                   paddingTop: 100,
@@ -120,7 +120,7 @@ module.exports = {
                 },
                 author: {
                   fontFamily: 'Noto Sans CJK JP',
-                  fontColor: '#DDDDDD',
+                  fontColor: '#CCCCCC',
                   fontWeight: '400',
                   fontSize: 42,
                 }
