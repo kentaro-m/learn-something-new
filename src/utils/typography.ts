@@ -2,9 +2,6 @@ import Typography from 'typography'
 import githubTheme from 'typography-theme-github'
 
 githubTheme.overrideThemeStyles = () => ({
-  a: {
-    color: '#1a85dc'
-  },
   h2: {
     margin: '1.5rem 0',
     lineHeight: 1.25,
