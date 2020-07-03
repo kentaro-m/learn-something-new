@@ -5,9 +5,9 @@ import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import { rhythm, scale } from '../utils/typography'
 import styled from '@emotion/styled'
-import { syntaxHighlightStyle } from '../style/common'
+import { syntaxHighlightStyle } from '../styles/syntax-highlight'
 import { css } from '@emotion/core'
-import { mq } from '../style/media-queries'
+import { mq } from '../styles/media-queries'
 
 const PostTitle = styled.h1`
   font-size: ${scale(0.6).fontSize};

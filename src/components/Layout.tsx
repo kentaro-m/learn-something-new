@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from './Header'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
 import { rhythm } from '../utils/typography'
-import { darkModeStyle, toggleStyle } from '../style/common'
+import { createGlobalStyles } from '../styles/global'
+import { toggleStyle } from '../styles/toggle'
+import ThemeContext from '../contexts/theme-context'
 
 const LayoutWrapper = styled.div`
   margin-left: auto;
@@ -19,9 +21,12 @@ type LayoutProps = {
 }
 
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
+  const { darkMode } = useContext(ThemeContext)
+  const globalStyles = createGlobalStyles(darkMode)
+
   return (
     <LayoutWrapper>
-      <Global styles={[darkModeStyle, toggleStyle]}/>
+      <Global styles={[globalStyles, toggleStyle]}/>
       <Header location={location} title={title} />
       {children}
     </LayoutWrapper>

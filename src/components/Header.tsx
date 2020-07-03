@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import DarkModeToggle from 'react-toggle'
-import useDarkMode from "use-dark-mode"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { rhythm, scale } from '../utils/typography'
-import { mq } from '../style/media-queries'
+import { mq } from '../styles/media-queries'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import ThemeContext from '../contexts/theme-context'
 
 library.add(faMoon, faSun)
 
@@ -69,11 +69,8 @@ const Header: React.FC<HeaderProps> = ({ location, title }) => {
   // @ts-ignore
   const rootPath = `${__PATH_PREFIX__}/`
 
-  const darkMode = useDarkMode(false, {
-    classNameDark: 'dark-theme',
-    classNameLight: 'light-theme'
-  })
-
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext)
+  
   if (location.pathname === rootPath) {
     return (
       <HeaderWrapper>
@@ -95,8 +92,8 @@ const Header: React.FC<HeaderProps> = ({ location, title }) => {
           </DarkModeLabel>
           <DarkModeToggle
             id='dark-mode-toggle'
-            checked={darkMode.value}
-            onChange={darkMode.toggle}
+            checked={darkMode}
+            onChange={toggleDarkMode}
             icons={{
               checked: <FontAwesomeIcon icon={faMoon} css={checkedIconStyle} />,
               unchecked: <FontAwesomeIcon icon={faSun} css={uncheckedIconStyle} />
@@ -133,8 +130,8 @@ const Header: React.FC<HeaderProps> = ({ location, title }) => {
           </DarkModeLabel>
           <DarkModeToggle
             id='dark-mode-toggle'
-            checked={darkMode.value}
-            onChange={darkMode.toggle}
+            checked={darkMode}
+            onChange={toggleDarkMode}
             icons={{
               checked: <FontAwesomeIcon icon={faMoon} css={checkedIconStyle} />,
               unchecked: <FontAwesomeIcon icon={faSun} css={uncheckedIconStyle} />
