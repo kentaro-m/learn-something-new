@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
 import { rhythm } from '../utils/typography'
 import { createGlobalStyles } from '../styles/global'
+import { Theme } from '../styles/theme'
 import ThemeContext from '../contexts/theme-context'
 
 const LayoutWrapper = styled.div`
@@ -21,7 +22,7 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
   const { darkMode } = useContext(ThemeContext)
-  const globalStyles = createGlobalStyles(darkMode)
+  const globalStyles = createGlobalStyles(darkMode ? Theme.Dark : Theme.Light)
 
   return (
     <LayoutWrapper>

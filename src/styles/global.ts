@@ -1,17 +1,17 @@
 import { css } from '@emotion/core'
-import { getTheme } from './theme'
+import { getTheme, ThemeType, Theme } from './theme'
 
-export const createGlobalStyles = (darkMode: boolean) => {
-  const theme = getTheme(darkMode)
+export const createGlobalStyles = (theme: ThemeType) => {
+  const themeValues = getTheme(theme)
   
   return css`
     body {
-      background: ${theme.colors.background};
-      color: ${theme.colors.text};
+      background: ${themeValues.colors.background};
+      color: ${themeValues.colors.text};
     }
 
     a {
-      color: ${theme.colors.primary};
+      color: ${themeValues.colors.primary};
     }
   `
 }

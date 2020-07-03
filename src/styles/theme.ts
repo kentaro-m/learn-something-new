@@ -14,6 +14,13 @@ const lightTheme = {
   }
 }
 
-export const getTheme = (darkMode: boolean) => {
-  return darkMode ? darkTheme : lightTheme
+export const Theme = {
+  Dark: 'dark',
+  Light: 'light'
+} as const
+
+export type ThemeType = typeof Theme[keyof typeof Theme]
+
+export const getTheme = (theme: ThemeType) => {
+  return Theme.Dark === theme ? darkTheme : lightTheme
 }
