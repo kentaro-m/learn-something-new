@@ -6,11 +6,19 @@ const darkTheme = {
   }
 }
 
-const lightTheme = {
+export const lightTheme = {
   colors: {
     background: '#ffffff',
     text: '#2d2d2d',
     primary: '#1a85dc'
+  }
+}
+
+export type ThemeValues = {
+  colors: {
+    background: string
+    text: string
+    primary: string
   }
 }
 
