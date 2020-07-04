@@ -54,6 +54,9 @@ const sunIconStyle = css`
 
 const Toggle: React.FC = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext)
+  const darkModeIcon = darkMode ?
+    <FontAwesomeIcon icon={faMoon} css={moonIconStyle} /> :
+    <FontAwesomeIcon icon={faSun} css={sunIconStyle} />
 
   return (
     <DarkModeWrapper>
@@ -61,7 +64,7 @@ const Toggle: React.FC = () => {
         ダークモード
       </DarkModeLabel>
       <DarkModeToggle id='dark-mode-toggle' onClick={toggleDarkMode} >
-        {darkMode ? <FontAwesomeIcon icon={faMoon} css={moonIconStyle} /> :<FontAwesomeIcon icon={faSun} css={sunIconStyle} />}
+        {darkModeIcon}
       </DarkModeToggle>
     </DarkModeWrapper>
   )
