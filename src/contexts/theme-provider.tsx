@@ -5,7 +5,7 @@ import { ThemeProvider as EmotionProvider } from 'emotion-theming'
 import { getTheme, Theme } from '../styles/theme'
 
 export const ThemeProvider: React.FC = ({ children }) => {
-  const toggleDarkMode = useDarkMode()
+  const toggleDarkMode = useDarkMode(false)
   
   return (
     <EmotionProvider theme={getTheme(toggleDarkMode.value ? Theme.Dark : Theme.Light)}>
