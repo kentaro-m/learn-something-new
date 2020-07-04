@@ -6,14 +6,12 @@ import { getTheme, Theme } from '../styles/theme'
 
 export const ThemeProvider: React.FC = ({ children }) => {
   const toggleDarkMode = useDarkMode()
-  const themeValues = getTheme(toggleDarkMode.value ? Theme.Dark : Theme.Light)
   
   return (
-    <EmotionProvider theme={themeValues}>
+    <EmotionProvider theme={getTheme(toggleDarkMode.value ? Theme.Dark : Theme.Light)}>
       <ThemeContext.Provider value={{
         darkMode: toggleDarkMode.value,
-        toggleDarkMode: toggleDarkMode.toggle,
-        theme: themeValues,
+        toggleDarkMode: toggleDarkMode.toggle
       }}>
         {children}
       </ThemeContext.Provider>

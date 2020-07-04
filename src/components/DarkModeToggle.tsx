@@ -38,14 +38,21 @@ const DarkModeToggle = styled.button`
   outline: none;
   padding: 0;
   appearance: none;
+  color: ${props => props.theme.colors.text};
 `
 
-const iconStyle = css`
+const moonIconStyle = css`
+  font-size: 20px;
+  vertical-align: baseline;
+`
+
+const sunIconStyle = css`
+  font-size: 24px;
   vertical-align: baseline;
 `
 
 const Toggle: React.FC = () => {
-  const { darkMode, toggleDarkMode, theme } = useContext(ThemeContext)
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext)
 
   return (
     <DarkModeWrapper>
@@ -53,12 +60,7 @@ const Toggle: React.FC = () => {
         ダークモード
       </DarkModeLabel>
       <DarkModeToggle id='dark-mode-toggle' onClick={toggleDarkMode} >
-        <FontAwesomeIcon
-          icon={darkMode ? faMoon : faSun}
-          css={iconStyle}
-          size={'lg'}
-          color={theme.colors.text}
-        />
+        {darkMode ? <FontAwesomeIcon icon={faMoon} css={moonIconStyle} /> :<FontAwesomeIcon icon={faSun} css={sunIconStyle} />}
       </DarkModeToggle>
     </DarkModeWrapper>
   )
