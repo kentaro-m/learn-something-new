@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { rhythm, scale } from '../utils/typography'
 import { mq } from '../styles/media-queries'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +8,7 @@ import styled from '../components/styled'
 import { css } from '@emotion/core'
 import ThemeContext from '../contexts/theme-context'
 
+config.autoAddCss = false
 library.add(faMoon, faSun)
 
 const DarkModeWrapper = styled.div`
