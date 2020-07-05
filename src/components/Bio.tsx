@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from '@emotion/styled'
 import { rhythm, scale } from '../utils/typography'
-import { mq } from '../style/media-queries'
+import { mq } from '../styles/media-queries'
 import { css } from '@emotion/core'
 
 const BioWrapper = styled.div`
