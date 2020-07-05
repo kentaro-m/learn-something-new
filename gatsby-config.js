@@ -14,6 +14,7 @@ module.exports = {
   siteMetadata,
   plugins: [
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-use-dark-mode`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
