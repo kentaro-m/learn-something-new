@@ -3,19 +3,27 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import Bio from '../components/Bio'
-import { rhythm } from '../utils/typography'
+import { rhythm, scale } from '../utils/typography'
+import { mq } from '../styles/media-queries'
 import styled from '@emotion/styled'
 
 const BlogIndexWrapper = styled.div`
   margin-bottom: ${rhythm(0.8)};
 `
 
-const PostWrapper = styled.div`
+const PostWrapper = styled.article`
   margin-bottom: ${rhythm(1.75)};
 `
 
-const PostTitle = styled.h3`
+const PostTitle = styled.h2`
   margin-bottom: ${rhythm(1 / 4)};
+  font-size: ${scale(1 / 3).fontSize};
+  line-height: ${rhythm(1.2)};
+  border: none;
+  ${mq[0]} {
+    font-size: ${scale(1 / 2).fontSize};
+    line-height: ${rhythm(1.5)};
+  }
 `
 
 type Post = {

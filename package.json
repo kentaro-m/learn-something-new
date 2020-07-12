@@ -45,6 +45,7 @@
     "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
+    "typeface-notosans-jp": "^1.0.1",
     "typography": "^0.16.19",
     "typography-theme-github": "^0.16.19",
     "use-dark-mode": "^2.3.1"
