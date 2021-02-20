@@ -1,7 +1,7 @@
 import React from 'react'
 import ThemeContext from './theme-context'
 import useDarkMode from 'use-dark-mode'
-import { ThemeProvider as EmotionProvider } from 'emotion-theming'
+import { ThemeProvider as EmotionProvider } from '@emotion/react'
 import { getTheme, Theme } from '../styles/theme'
 
 export const ThemeProvider: React.FC = ({ children }) => {

@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { getTheme, ThemeType, Theme } from './theme'
 
 export const createGlobalStyles = (theme: ThemeType) => {

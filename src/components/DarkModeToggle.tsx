@@ -5,7 +5,7 @@ import { mq } from '../styles/media-queries'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import styled from '../components/styled'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import ThemeContext from '../contexts/theme-context'
 
 config.autoAddCss = false
