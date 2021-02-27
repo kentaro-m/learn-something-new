@@ -4,7 +4,7 @@ import Image from 'gatsby-image'
 import styled from '@emotion/styled'
 import { rhythm, scale } from '../utils/typography'
 import { mq } from '../styles/media-queries'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const BioWrapper = styled.div`
   display: block;

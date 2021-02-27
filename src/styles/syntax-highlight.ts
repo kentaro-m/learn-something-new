@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { mq } from './media-queries'
 import { scale } from '../utils/typography'
 

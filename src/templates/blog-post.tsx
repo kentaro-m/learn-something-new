@@ -6,7 +6,7 @@ import Seo from '../components/Seo'
 import { rhythm, scale } from '../utils/typography'
 import styled from '@emotion/styled'
 import { syntaxHighlightStyle } from '../styles/syntax-highlight'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { mq } from '../styles/media-queries'
 
 const PostTitle = styled.h1`

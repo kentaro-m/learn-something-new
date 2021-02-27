@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Header from './Header'
 import styled from '@emotion/styled'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 import { rhythm } from '../utils/typography'
 import { createGlobalStyles } from '../styles/global'
 import { Theme } from '../styles/theme'
