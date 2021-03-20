@@ -1,11 +1,12 @@
 module.exports = {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "es6": true,
   },
   "plugins": [
     "react",
+    "@typescript-eslint"
   ],
   "globals": {
     "graphql": false,

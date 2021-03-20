@@ -4,8 +4,12 @@ import 'typeface-merriweather'
 import 'typeface-notosans-jp'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import React from 'react'
-import { ThemeProvider } from './src/contexts/theme-provider'
+import { ChakraProvider, CSSReset } from '@chakra-ui/react'
+import { theme } from './src/theme/theme'
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider>{element}</ThemeProvider>
+  <ChakraProvider theme={theme}>
+    <CSSReset />
+    {element}
+  </ChakraProvider>
 )

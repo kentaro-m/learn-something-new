@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 import { rhythm, scale } from '../utils/typography'
 import { mq } from '../styles/media-queries'
 import styled from '@emotion/styled'
-import DarkModeToggle from '../components/DarkModeToggle'
+import { Box, Text, Link } from '@chakra-ui/react'
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -34,46 +34,35 @@ const Header: React.FC<HeaderProps> = ({ location, title }) => {
   
   if (location.pathname === rootPath) {
     return (
-      <HeaderWrapper>
-        <BlogTitle>
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
+      <Box mt={8}>
+        <Text
+          as='h1'
+          fontSize='2xl'
+          fontWeight='bold'
+          fontFamily='Montserrat'
+          textAlign='center'
+        >
+          <Link as={GatsbyLink} to='/' color='white'>
             {title}
           </Link>
-        </BlogTitle>
-        <DarkModeToggle/>
-      </HeaderWrapper>
+        </Text>
+      </Box>
     )
   } else {
     return (
-      <HeaderWrapper>
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            fontWeight: 800,
-            marginTop: '10px',
-            marginBottom: '0px',
-          }}
+      <Box mt={8}>
+        <Text
+          as='h1'
+          fontSize='2xl'
+          fontWeight='bold'
+          fontFamily='Montserrat'
+          textAlign='center'
         >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
+          <Link as={GatsbyLink} to='/' color='white'>
             {title}
           </Link>
-        </h3>
-        <DarkModeToggle/>
-      </HeaderWrapper>
+        </Text>
+      </Box>
     )
   }
 }

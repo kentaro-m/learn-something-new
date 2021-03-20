@@ -1,18 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Header from './Header'
-import styled from '@emotion/styled'
-import { Global } from '@emotion/react'
-import { rhythm } from '../utils/typography'
-import { createGlobalStyles } from '../styles/global'
-import { Theme } from '../styles/theme'
-import ThemeContext from '../contexts/theme-context'
-
-const LayoutWrapper = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: ${rhythm(28)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
-`
+import { Container } from '@chakra-ui/react'
+import { MDXProvider } from '@mdx-js/react'
+import { Heading, Text, Link, UnorderedList, OrderedList, ListItem } from '@chakra-ui/react'
+import CodeBlock from './CodeBlock'
 
 type LayoutProps = {
   location: Location
@@ -20,16 +11,26 @@ type LayoutProps = {
   children: JSX.Element[]
 }
 
+const components = {
+  a: (props: any) => <Link {...props}>{props.children}</Link>,
+  p: ({ children }: any) => <Text mb={8}>{children}</Text>,
+  h2: ({ children }: any) => <Heading as='h2' size='lg' mb={4} >{children}</Heading>,
+  ul: ({ children }: any) => <UnorderedList>{children}</UnorderedList>,
+  ol: ({ children }: any) => <OrderedList>{children}</OrderedList>,
+  li: ({ children }: any) => <ListItem>{children}</ListItem>,
+  pre: (props: any) => <div {...props} />,
+  code: (props: any) => <CodeBlock {...props} />,
+}
+
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
-  const { darkMode } = useContext(ThemeContext)
-  const globalStyles = createGlobalStyles(darkMode ? Theme.Dark : Theme.Light)
 
   return (
-    <LayoutWrapper>
-      <Global styles={[globalStyles]}/>
-      <Header location={location} title={title} />
-      {children}
-    </LayoutWrapper>
+    <MDXProvider components={components}>
+      <Container maxW="container.md">
+        <Header location={location} title={title} />
+        {children}
+      </Container>
+    </MDXProvider>
   )
 }
 
