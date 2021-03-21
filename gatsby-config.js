@@ -59,7 +59,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -76,7 +75,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-twitter`,
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-feed-mdx`,
       options: {
       query: `
         {
@@ -92,32 +91,32 @@ module.exports = {
       `,
       feeds: [
         {
-          serialize: ({ query: { site, allMarkdownRemark } }) => {
-            return allMarkdownRemark.edges.map(edge => {
+          serialize: ({ query: { site, allMdx } }) => {
+            return allMdx.edges.map(edge => {
               return Object.assign({}, edge.node.frontmatter, {
                 description: edge.node.excerpt,
                 date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ "content:encoded": edge.node.html }],
+                url: site.siteMetadata.siteUrl + edge.node.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.slug,
+                custom_elements: [{ "content:encoded": edge.node.html }]
               })
             })
           },
           query: `
             {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] }
+              allMdx(
+                sort: {fields: [frontmatter___date], order: DESC}
+                limit: 1
               ) {
                 edges {
                   node {
-                    excerpt
-                    html
-                    fields { slug }
+                    slug
                     frontmatter {
                       title
                       date
                     }
+                    excerpt
+                    html
                   }
                 }
               }
