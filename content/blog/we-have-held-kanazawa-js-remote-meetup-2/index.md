@@ -20,17 +20,17 @@ LT発表は3本でした。リモートのLT発表では発表者が聴衆の反
 ### JavaScript を書き始める前に知っておきたい JavaScript のこと
 [@ur_uhaさん](https://twitter.com/ur_uha)からJavaScriptの歴史と動作原理について発表していただきました。普段開発する際には動作原理は強く意識しないかもしれませんが、知識として知っておくと、トラブルが発生した際の対処の勘所が分かるケースもあるのではないかと思いました。
 
-`slide: https://speakerdeck.com/uruha/javascript-woshu-kishi-meruqian-nizhi-tuteokitai-javascript-falsekoto`
+<Slide id='a740320be15e419c86acddfc8648ea33' />
 
 ### GitHub Gistを使って、アクティビティを可視化しよう
 私からはGitHub GistとGitHub Actionsを組み合わせて、読書状況の可視化に取り組んだことを発表しました。インドアな生活が続くなかで、自分のアクティビティを技術を使って可視化できないかと考えて、やってみました。GitHub Actionsの入門としてもおすすめです。
 
-`slide: https://speakerdeck.com/kentarom/lets-try-visualizing-your-activity-using-the-github-gist`
+<Slide id='1908154a6c9849c89be1a03b554b106d' />
 
 ### VTuber の LOD をみんなで作るための取り組み
 [@saitoeku3さん](https://twitter.com/saitoeku3)からVTuberに関するLinked Open Dataの構築をオープンな場で行うために取り組んだことを紹介していただきました。特定の技術への深い理解がない人でも、VTuberの創作に貢献できるところが良いと思いました。
 
-`slide: https://speakerdeck.com/saitoeku3/initiatives-for-an-environment-where-anyone-can-contribute-to-vlueprint`
+<Slide id='7c9b3c69f6fd4a2488c8f5b948d4407e' />
 
 ## さいごに
 今回はビデオ会議ツールのZoomを使用して、オンラインではじめて開催しました。オフラインの開催のやり方がそのまま使えないこともあり、手探り状態での運営でしたが、無事に終了してほっとしています。

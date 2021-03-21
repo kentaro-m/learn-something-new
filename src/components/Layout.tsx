@@ -4,6 +4,7 @@ import { Container } from '@chakra-ui/react'
 import { MDXProvider } from '@mdx-js/react'
 import { Heading, Text, Link, UnorderedList, OrderedList, ListItem } from '@chakra-ui/react'
 import CodeBlock from './CodeBlock'
+import Slide from './Slide'
 
 type LayoutProps = {
   location: Location
@@ -20,6 +21,7 @@ const components = {
   li: ({ children }: any) => <ListItem>{children}</ListItem>,
   pre: (props: any) => <div {...props} />,
   code: (props: any) => <CodeBlock {...props} />,
+  Slide: ({ id }: { id: string }) => <Slide id={id} />
 }
 
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {

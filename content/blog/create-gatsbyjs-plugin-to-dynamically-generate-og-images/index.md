@@ -104,7 +104,7 @@ run()
 
 画像生成処理は[node-canvas](https://github.com/Automattic/node-canvas)というサーバーサイドのNode.jsでCanvas APIを操作するライブラリを駆使して実現しています。詳細な処理フローや実装のハマりポイントは先日のKanazawa.js meetup #1で発表したので、下記の資料を参照ください。
 
-`slide: https://speakerdeck.com/kentarom/create-a-node-dot-js-module-for-generating-open-graph-image`
+<Slide id='b81766906fec4f229e905d300e96e53b' />
 
 ## GatsbyJSプラグインの作成
 ブログの記事情報からOGP画像を生成するために専用のGatsbyJSプラグインを作成しました。
