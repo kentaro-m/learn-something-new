@@ -12,8 +12,8 @@ function Bio() {
           <Flex justifyContent='center'>
             <Box mr={[3, 6]}>
               <Image
-                src={data.avatar.childImageSharp.fixed.src}
-                srcSet={data.avatar.childImageSharp.fixed.srcSet}
+                src={data.avatar.childImageSharp.gatsbyImageData.src}
+                srcSet={data.avatar.childImageSharp.gatsbyImageData.srcSet}
                 alt={author}
               />
             </Box>
@@ -29,30 +29,27 @@ function Bio() {
               </Text>
             </Box>
           </Flex>
-        )
+        );
       }}
     />
-  )
+  );
 }
 
-const bioQuery = graphql`
-  query BioQuery {
-    avatar: file(absolutePath: { regex: "/avatar.jpeg/" }) {
-      childImageSharp {
-        fixed(width: 100, height: 100) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+const bioQuery = graphql`query BioQuery {
+  avatar: file(absolutePath: {regex: "/avatar.jpeg/"}) {
+    childImageSharp {
+      gatsbyImageData(width: 100, height: 100, layout: FIXED)
     }
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
+  }
+  site {
+    siteMetadata {
+      author
+      social {
+        twitter
       }
     }
   }
+}
 `
 
 export default Bio
