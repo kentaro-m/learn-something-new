@@ -48,12 +48,6 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-toggle": "^4.1.2",
-    "react-typography": "^0.16.19",
-    "typeface-merriweather": "1.1.13",
-    "typeface-montserrat": "1.1.13",
-    "typeface-notosans-jp": "^1.0.1",
-    "typography": "^0.16.19",
-    "typography-theme-github": "^0.16.19",
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
@@ -63,7 +57,6 @@
     "@types/react-dom": "^17.0.2",
     "@types/react-helmet": "^6.1.0",
     "@types/react-toggle": "^4.0.2",
-    "@types/typography": "^0.16.3",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "babel-eslint": "^10.1.0",
