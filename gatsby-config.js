@@ -37,6 +37,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-mdx-embed`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

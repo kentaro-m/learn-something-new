@@ -19,10 +19,10 @@ Spatial Chatは無料のビデオチャットサービスで50人まで同時利
 ## もくもく会
 もくもく会では、Next.jsのチュートリアルやDenoの入門、ポートフォリオサイトの作成、GatsbyJS製ブログの機能追加など、参加者がそれぞれ選択した技術に触れていました。
 
-`oembed: https://twitter.com/yu_kgr/status/1264060189646286850`
+<Tweet tweetLink="yu_kgr/status/1264060189646286850" />
 
 ## LT発表
-`oembed: https://twitter.com/_kentaro_m/status/1264098485835456513`
+<Tweet tweetLink="_kentaro_m/status/1264098485835456513" />
 
 ### JavaScript を書き始める前に知っておきたい JavaScript のこと #02
 [@ur_uha](https://twitter.com/ur_uha)さんからはJavaScriptのプロトタイプチェーンに関して発表いただきました。普段JavaScriptを書く際に何も意識せずとも、オブジェクトのビルトインメソッドが利用できますが、動作原理を知ることでデバッグがしやすくなると思いました。

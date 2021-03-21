@@ -8,12 +8,12 @@ date: '2020-04-25T09:27:58.190Z'
 ## もくもく会
 もくもく会ではGatsbyJSやReact、TypeScript、ビジュアルコーディングなど参加者がそれぞれ選択した技術に触れていました。
 
-`oembed: https://twitter.com/yu_kgr/status/1253925646218047488`
+<Tweet tweetLink="yu_kgr/status/1253925646218047488" />
 
 ## LT発表
 LT発表は3本でした。リモートのLT発表では発表者が聴衆の反応を感じにくいので、やりづらさがあるのではないかと心配していましたが、発表者の画面にコメントを流せる[Comment Screen](https://commentscreen.com/)というサービスを利用したことで、感想や質問などが随時書き込まれて、盛り上がりました。
 
-`oembed: https://twitter.com/yu_kgr/status/1253944627905703937`
+<Tweet tweetLink="yu_kgr/status/1253944627905703937" />
 
 イベントで発表いただいた内容をまとめました。
 
