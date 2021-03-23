@@ -1,6 +1,13 @@
 import React from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import nightOwl from 'prism-react-renderer/themes/nightOwl'
+import { Box } from '@chakra-ui/react'
+import styled from '@emotion/styled'
+
+const Pre = styled.pre`
+  padding: 1.5rem;
+  overflow: scroll;
+`;
 
 const CodeBlock = ({ children, className }: any) => {
   const language = className?.replace(/language-/, '') || ''
@@ -8,15 +15,17 @@ const CodeBlock = ({ children, className }: any) => {
   return (
     <Highlight {...defaultProps} code={children} theme={nightOwl} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </pre>
+        <Box fontSize='sm'>
+          <Pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </Pre>
+        </Box>
       )}
     </Highlight>
   )
