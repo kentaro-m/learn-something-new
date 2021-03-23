@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: `Learn Something New`,
+  title: `Knowledge is power.`,
   author: `Kentaro Matsushita`,
   description: `Knowledge is power.`,
   siteUrl: `https://blog.kentarom.com`,

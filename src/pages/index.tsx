@@ -52,8 +52,8 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.slug
             return (
-              <Box mb={8} key={node.slug}>
-                <Heading color='cyan.400' as='h2' size='md'>
+              <Box mb={10} key={node.slug}>
+                <Heading color='teal.300' as='h2' size='md' lineHeight='base' mb={2}>
                   <Link style={{ boxShadow: `none` }} to={node.slug}>
                     {title}
                   </Link>

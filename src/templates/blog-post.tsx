@@ -48,10 +48,10 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
         <Box>
           <Seo title={post.frontmatter.title} description={post.excerpt} slug={post.slug} />
           <Box as='article'>
-            <Heading as='h1'>
+            <Heading as='h1' size='lg' lineHeight='base' mb={4}>
               {post.frontmatter.title}
             </Heading>
-            <Text>
+            <Text mb={8}>
               {post.frontmatter.date}
             </Text>
           </Box>

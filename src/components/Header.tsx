@@ -7,43 +7,20 @@ type HeaderProps = {
   title: string
 }
 
-const Header: React.FC<HeaderProps> = ({ location, title }) => {
-  // @ts-ignore
-  const rootPath = `${__PATH_PREFIX__}/`
-  
-  if (location.pathname === rootPath) {
-    return (
-      <Box mt={8}>
-        <Text
-          as='h1'
-          fontSize='2xl'
-          fontWeight='bold'
-          fontFamily='Montserrat'
-          textAlign='center'
-        >
-          <Link as={GatsbyLink} to='/' color='white'>
-            {title}
-          </Link>
-        </Text>
-      </Box>
-    )
-  } else {
-    return (
-      <Box mt={8}>
-        <Text
-          as='h1'
-          fontSize='2xl'
-          fontWeight='bold'
-          fontFamily='Montserrat'
-          textAlign='center'
-        >
-          <Link as={GatsbyLink} to='/' color='white'>
-            {title}
-          </Link>
-        </Text>
-      </Box>
-    )
-  }
-}
+const Header: React.FC<HeaderProps> = ({ title }) => (
+  <Box mt={8}>
+    <Text
+      as='h1'
+      fontSize={['2xl', '4xl']}
+      fontWeight='bold'
+      fontFamily='Montserrat'
+      textAlign='center'
+    >
+      <Link as={GatsbyLink} to='/' color='gray.200'>
+        {title}
+      </Link>
+    </Text>
+  </Box>
+)
 
 export default Header
