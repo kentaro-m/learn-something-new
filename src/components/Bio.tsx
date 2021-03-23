@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Flex, Box, Text, Link, Image } from '@chakra-ui/react'
+import { Flex, Box, Text, Link, Image, Wrap, WrapItem } from '@chakra-ui/react'
 
 function Bio() {
   return (
@@ -11,27 +11,35 @@ function Bio() {
         const { author } = data.site.siteMetadata
         const image = getImage(data.avatar)
         return (
-          <Flex justifyContent='center'>
-            <Box mr={[3, 6]}>
-              {image && <Image
+          <Wrap spacing={6} justify='center'>
+            <WrapItem>
+              <Box>
+            {image && <Image
                 as={GatsbyImage}
                 image={image}
                 alt={author}
                 borderRadius='50%'
               />}
-            </Box>
-            <Box>
-              <Link href='https://kentarom.com/'>
-                {author}
-              </Link>
-              <Text>
-                👨‍💻 金沢のゲーム会社で働くフロントエンドエンジニア
-              </Text>
-              <Text>
-                ❤️ React, TypeScript and GraphQL
-              </Text>
-            </Box>
-          </Flex>
+              </Box>
+            </WrapItem>
+            <WrapItem>
+              <Box>
+                <Link
+                  href='https://kentarom.com/'
+                  fontSize='md'
+                  lineHeight='tall'
+                >
+                  {author}
+                </Link>
+                <Text fontSize='sm' lineHeight='tall'>
+                  👨‍💻 金沢のゲーム会社で働くWeb Developer
+                </Text>
+                <Text fontSize='sm' lineHeight='tall'>
+                  ❤️ React, TypeScript and GraphQL
+                </Text>
+              </Box>
+            </WrapItem>
+          </Wrap>
         );
       }}
     />
