@@ -2,18 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
-import Bio from '../components/Bio'
 import { Heading, Text, Box, Flex } from '@chakra-ui/react'
-import styled from '@emotion/styled'
-
-const Divider = styled.div`
-  &::before {
-    content: '...';
-    font-size: 64px;
-    position: relative;
-    top: -53px;
-  }
-`
 
 type BlogIndexProps = {
   data: {
@@ -45,9 +34,6 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo/>
-        <Flex height='32px' justifyContent='center' mt={8} mb={8}>
-          <Divider />
-        </Flex>
         <Box>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.slug
@@ -65,10 +51,6 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
             )
           })}
         </Box>
-        <Flex height='32px' justifyContent='center' mt={4} mb={10}>
-          <Divider />
-        </Flex>
-        <Bio/>
       </Layout>
     )
 }

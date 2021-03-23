@@ -28,7 +28,7 @@ function Bio() {
                 👨‍💻 金沢のゲーム会社で働くフロントエンドエンジニア
               </Text>
               <Text>
-                ❤️ React, TypeScript and Micro Frontends
+                ❤️ React, TypeScript and GraphQL
               </Text>
             </Box>
           </Flex>

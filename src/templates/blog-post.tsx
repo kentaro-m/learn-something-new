@@ -42,9 +42,6 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
 
     return (
       <Layout location={location} title={siteTitle}>
-        <Flex height='32px' justifyContent='center' mt={8} mb={8}>
-          <Divider />
-        </Flex>
         <Box>
           <Seo title={post.frontmatter.title} description={post.excerpt} slug={post.slug} />
           <Box as='article'>
@@ -57,10 +54,6 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
           </Box>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </Box>
-        <Flex height='32px' justifyContent='center' mt={4} mb={10}>
-          <Divider />
-        </Flex>
-        <Bio />
       </Layout>
     )
 }
