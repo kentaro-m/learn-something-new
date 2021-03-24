@@ -10,7 +10,7 @@ import Bio from './Bio'
 
 import '@fontsource/montserrat/800.css'
 import '@fontsource/noto-sans-jp/700.css'
-import '@fontsource/noto-sans-jp/500.css'
+import '@fontsource/noto-sans-jp/400.css'
 
 type LayoutProps = {
   location: Location

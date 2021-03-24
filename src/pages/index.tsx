@@ -39,7 +39,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
             const title = node.frontmatter.title || node.slug
             return (
               <Box mb={10} key={node.slug}>
-                <Heading color='teal.300' as='h2' size='md' lineHeight='base' mb={2}>
+                <Heading color='purple.200' as='h2' size='md' lineHeight='base' mb={2}>
                   <Link style={{ boxShadow: `none` }} to={node.slug}>
                     {title}
                   </Link>

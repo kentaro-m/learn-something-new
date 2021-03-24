@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => (
       fontFamily='Montserrat'
       textAlign='center'
     >
-      <Link as={GatsbyLink} to='/' color='gray.200'>
+      <Link as={GatsbyLink} to='/' color='gray.200' _hover={{ textDecoration: 'none' }}>
         {title}
       </Link>
     </Text>

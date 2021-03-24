@@ -22,8 +22,8 @@ export const theme = extendTheme({
   components: {
     Link: {
       baseStyle: {
-        color: 'teal.300',
+        color: 'purple.200',
       },
-    }
+    },
   }
 })

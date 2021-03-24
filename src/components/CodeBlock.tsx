@@ -1,11 +1,11 @@
 import React from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import nightOwl from 'prism-react-renderer/themes/nightOwl'
+import nightOwl from 'prism-react-renderer/themes/dracula'
 import { Box } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
 const Pre = styled.pre`
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0;
   overflow: scroll;
 `;
 
