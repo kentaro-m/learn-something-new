@@ -40,7 +40,6 @@ const Seo = ({ description, title, slug}: SEOProps) => (
         const metaDescription =
           description || site.siteMetadata.description
         const pageUrl = slug ? site.siteMetadata.siteUrl + slug : site.siteMetadata.siteUrl + '/'
-        const thumbnailUrl = slug ? site.siteMetadata.siteUrl + slug + 'thumbnail.png' : site.siteMetadata.siteUrl + '/thumbnail.png'
         return (
           <Helmet
             htmlAttributes={{
@@ -73,10 +72,6 @@ const Seo = ({ description, title, slug}: SEOProps) => (
                 content: metaDescription,
               },
               {
-                property: `og:image`,
-                content: thumbnailUrl,
-              },
-              {
                 property: `og:image:width`,
                 content: `1200`,
               },
@@ -95,10 +90,6 @@ const Seo = ({ description, title, slug}: SEOProps) => (
               {
                 name: `twitter:card`,
                 content: `summary_large_image`,
-              },
-              {
-                name: `twitter:image`,
-                content: thumbnailUrl,
               },
               {
                 name: `twitter:creator`,
