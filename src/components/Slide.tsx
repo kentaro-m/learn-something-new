@@ -14,7 +14,7 @@ const Slide: React.FC<SlideProps> = ({ id }) => {
       height={0}
       left={0}
       paddingBottom='56.1987%'
-      marginBottom='2rem'
+      class='slide-embed'
     >
       <iframe
         src={`//speakerdeck.com/player/${id}`}

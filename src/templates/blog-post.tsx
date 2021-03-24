@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Flex, Text, Heading, Box } from '@chakra-ui/react'
+import { Text, Heading, Box } from '@chakra-ui/react'
 
 const Divider = styled.div`
   &::before {
@@ -42,7 +42,22 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
 
     return (
       <Layout location={location} title={siteTitle}>
-        <Box>
+        <Box
+          sx={{
+            ':not(li) > ul': {
+              mb: 8
+            },
+            ':not(li) > ol': {
+              mb: 8
+            },
+            '.mdx-embed': {
+              mb: 8
+            },
+            '.slide-embed': {
+              mb: 8
+            },
+          }}
+        >
           <Seo title={post.frontmatter.title} description={post.excerpt} slug={post.slug} />
           <Box as='article'>
             <Heading as='h1' size='lg' lineHeight='base' mb={4}>
