@@ -1,81 +1,26 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { rhythm, scale } from '../utils/typography'
-import { mq } from '../styles/media-queries'
-import styled from '@emotion/styled'
-import DarkModeToggle from '../components/DarkModeToggle'
-
-const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-const BlogTitle = styled.h1`
-  font-family: Montserrat, sans-serif;
-  font-size: ${scale(0.5).fontSize};
-  line-height: ${scale(1.0).lineHeight};
-  margin-bottom: ${rhythm(1.5)};
-  margin-top: 0;
-  font-weight: 800;
-  border-bottom: none;
-  ${mq[0]} {
-    font-size: ${scale(1.0).fontSize};
-  }
-`
+import { Link as GatsbyLink } from 'gatsby'
+import { Box, Text, Link } from '@chakra-ui/react'
 
 type HeaderProps = {
   location: Location
   title: string
 }
 
-const Header: React.FC<HeaderProps> = ({ location, title }) => {
-  // @ts-ignore
-  const rootPath = `${__PATH_PREFIX__}/`
-  
-  if (location.pathname === rootPath) {
-    return (
-      <HeaderWrapper>
-        <BlogTitle>
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </BlogTitle>
-        <DarkModeToggle/>
-      </HeaderWrapper>
-    )
-  } else {
-    return (
-      <HeaderWrapper>
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            fontWeight: 800,
-            marginTop: '10px',
-            marginBottom: '0px',
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-        <DarkModeToggle/>
-      </HeaderWrapper>
-    )
-  }
-}
+const Header: React.FC<HeaderProps> = ({ title }) => (
+  <Box mt={8}>
+    <Text
+      as='h1'
+      fontSize={['2xl', '4xl']}
+      fontWeight='bold'
+      fontFamily='Montserrat'
+      textAlign='center'
+    >
+      <Link as={GatsbyLink} to='/' color='gray.200' _hover={{ textDecoration: 'none' }}>
+        {title}
+      </Link>
+    </Text>
+  </Box>
+)
 
 export default Header

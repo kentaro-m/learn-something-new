@@ -28,32 +28,32 @@ LT発表では6人の方に発表していただきました。
 ### 開発時のコミュニケーションを円滑化するBOTを作った話
 [@yu_kgr](https://twitter.com/yu_kgr)からはGitLabのMerge Requestのイベントをフックして、適切な通知先に通知するSlack Botを開発し、レビュー依頼の自動化を実現したという発表でした。通知の仕方を工夫して、レビューコミュニケーションを改善した点は良いBotの活用例だと思いました。
 
-`slide: https://speakerdeck.com/yu_kgr/a-story-about-creating-a-bot-that-facilitates-communication-during-development`
+<Slide id='36fbc1f253484916ab7edfe3bfb60946' />
 
 ### ハックしなければクリアできないRPG 「ハックフォープレイ」の紹介
 [@teramotodaiki](https://twitter.com/teramotodaiki)さんからはプログラミングを楽しみながら学べるハックフォープレイというゲームを紹介していただきました。今の子どもたちのプログラミング学習事情が知れて興味津々でした。サービスのアーキテクチャも面白かったです。
 
-`slide: https://speakerdeck.com/teramotodaiki/hatukusinakerebakuriadekinairpg-hatukuhuopurei-falseshao-jie`
+<Slide id='0487598d061d402888babecc53de52d8' />
 
 ### GatsbyJS と Contentful を用いた静的 Web サイト運用のすゝめ
 [@saitoeku3](https://twitter.com/saitoeku3)さんからGatsbyJSとContentfulを使った静的Webサイトの開発・運用して得た知見を発表いただきました。アーティストのファンサイトを作成するために、要件から適切な技術選定を行った点が印象的でした。
 
-`slide: https://speakerdeck.com/saitoeku3/introduction-of-static-web-site-operation-with-gatsbyjs-and-contentful`
+<Slide id='967a5685231c496bafa1ae28ebb60ee8' />
 
 ### OGP画像を生成するNode.jsのライブラリを作ってみた
 私からはNode canvasを使用して、OGP画像を動的生成するライブラリを作成したという内容の発表を行いました。SNSに記事をシェアした際の見栄えを良くするために開発しました。
 
-`slide: https://speakerdeck.com/kentarom/create-a-node-dot-js-module-for-generating-open-graph-image`
+<Slide id='b81766906fec4f229e905d300e96e53b' />
 
 ### JavaScript を書き始める前にやっておきたいこと
 [@ur_uha](https://twitter.com/ur_uha)さんからはツール導入でJavaScriptの書き方にチーム内で統一性をもたせることにより、書き方で疲弊せず、本来の開発目的に注力できるという内容でした。プロジェクトのはじめに少しの労力をかけることで、コードの秩序が保たれるので、大事なことだと思いました。
 
-`slide: https://speakerdeck.com/uruha/kanazawa-dot-js-meetup-number-1`
+<Slide id='e6c7ad4ce3714c2584aad225fb8a341f' />
 
 ### 脱レガシーフロントエンドのために知っておいたほうがいいこと
 [@mugi_uno](https://twitter.com/mugi_uno)さんからはレガシーフロントエンドから脱却に取り組む際の向き合い方の発表をいただきました。さまざまな観点から小さくして、作業を進めると、安全に改善できるという点は非常に同意できる内容でレガシーコードを改修する際に意識したいと思いました。
 
-`slide: https://speakerdeck.com/mugi_uno/tuo-regasihurontoendofalsetamenizhi-tuteoitahougaiikoto`
+<Slide id='424cf34287054d2da783efa2b6a9c287' />
 
 ## イベント運営してみての所感
 

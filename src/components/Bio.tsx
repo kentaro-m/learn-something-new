@@ -1,53 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Image from 'gatsby-image'
-import styled from '@emotion/styled'
-import { rhythm, scale } from '../utils/typography'
-import { mq } from '../styles/media-queries'
-import { css } from '@emotion/react'
-
-const BioWrapper = styled.div`
-  display: block;
-  ${mq[0]} {
-    display: flex;
-    justify-content: center;
-  }
-`
-
-const AuthorLink = styled.a`
-  font-size: ${scale(0.1).fontSize};
-  margin-bottom: .2em;
-  display: block;
-  ${mq[0]} {
-    font-size: ${scale(0.1).fontSize};
-  }
-`
-
-const DescriptionText = styled.p`
-  font-size: ${scale(-0.1).fontSize};
-  display: block;
-  margin: 0;
-  ${mq[0]} {
-    font-size: ${scale(-0.1).fontSize};
-  }
-`
-
-const imageWrapperStyle = css`
-  display: block !important;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  ${mq[0]} {
-    margin 0;
-    margin-right: ${rhythm(1 / 2)};
-    margin-bottom: 0;
-    min-width: 50;
-    border-radius: 100%;
-  }
-`
-
-const imageStyle = css`
-  border-radius: 50%;
-`
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Flex, Box, Text, Link, Image, Wrap, WrapItem } from '@chakra-ui/react'
 
 function Bio() {
   return (
@@ -55,49 +9,64 @@ function Bio() {
       query={bioQuery}
       render={data => {
         const { author } = data.site.siteMetadata
+        const image = getImage(data.avatar)
         return (
-          <BioWrapper>
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              css={[imageWrapperStyle, imageStyle]}
-            />
-            <div>
-              <AuthorLink href='https://kentarom.com/'>
-                {author}
-              </AuthorLink>
-              <DescriptionText>
-                👨‍💻 金沢のゲーム会社で働くフロントエンドエンジニア
-              </DescriptionText>
-              <DescriptionText>
-                ❤️ React, TypeScript and Micro Frontends
-              </DescriptionText>
-            </div>
-          </BioWrapper>
-        )
+          <Wrap spacing={6} justify='center'>
+            <WrapItem>
+              <Box>
+            {image && <Image
+                as={GatsbyImage}
+                image={image}
+                alt={author}
+                borderRadius='50%'
+              />}
+              </Box>
+            </WrapItem>
+            <WrapItem>
+              <Box>
+                <Link
+                  href='https://kentarom.com/'
+                  fontSize='md'
+                  lineHeight='tall'
+                >
+                  {author}
+                </Link>
+                <Text fontSize='sm' lineHeight='tall'>
+                  👨‍💻 金沢のゲーム会社で働くWeb Developer
+                </Text>
+                <Text fontSize='sm' lineHeight='tall'>
+                  ❤️ React, TypeScript and GraphQL
+                </Text>
+              </Box>
+            </WrapItem>
+          </Wrap>
+        );
       }}
     />
-  )
+  );
 }
 
-const bioQuery = graphql`
-  query BioQuery {
-    avatar: file(absolutePath: { regex: "/avatar.jpeg/" }) {
-      childImageSharp {
-        fixed(width: 100, height: 100) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+const bioQuery = graphql`query BioQuery {
+  avatar: file(absolutePath: {regex: "/avatar.jpeg/"}) {
+    childImageSharp {
+      gatsbyImageData(
+        width: 100
+        height: 100
+        layout: FIXED
+        placeholder: BLURRED
+        formats: [AUTO, WEBP, AVIF]
+      )
     }
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
+  }
+  site {
+    siteMetadata {
+      author
+      social {
+        twitter
       }
     }
   }
+}
 `
 
 export default Bio

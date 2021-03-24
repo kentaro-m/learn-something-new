@@ -19,25 +19,25 @@ Spatial Chatは無料のビデオチャットサービスで50人まで同時利
 ## もくもく会
 もくもく会では、Next.jsのチュートリアルやDenoの入門、ポートフォリオサイトの作成、GatsbyJS製ブログの機能追加など、参加者がそれぞれ選択した技術に触れていました。
 
-`oembed: https://twitter.com/yu_kgr/status/1264060189646286850`
+<Tweet tweetLink="yu_kgr/status/1264060189646286850" />
 
 ## LT発表
-`oembed: https://twitter.com/_kentaro_m/status/1264098485835456513`
+<Tweet tweetLink="_kentaro_m/status/1264098485835456513" />
 
 ### JavaScript を書き始める前に知っておきたい JavaScript のこと #02
 [@ur_uha](https://twitter.com/ur_uha)さんからはJavaScriptのプロトタイプチェーンに関して発表いただきました。普段JavaScriptを書く際に何も意識せずとも、オブジェクトのビルトインメソッドが利用できますが、動作原理を知ることでデバッグがしやすくなると思いました。
 
-`slide: https://speakerdeck.com/uruha/javascript-woshu-kishi-meruqian-nizhi-tuteokitai-javascript-falsekoto-number-02`
+<Slide id='38a32df7f14848fbbf224edcaf529e80' />
 
 ### Actions ToolkitではじめるGitHub Action開発
 私からは自作のGitHub Actionを作成から公開するまでの流れを発表しました。GitHubが公開している[GitHub Actions Toolkit](https://github.com/actions/toolkit)というライブラリを使用すると、簡単に自作のActionが作れて、GitHubの作業を効率化することができるので、是非一度試していただきたいです。
 
-`slide: https://speakerdeck.com/kentarom/getting-started-creating-a-github-action-with-actions-toolkit`
+<Slide id='79371764ab7e4763ac9b97430468a652' />
 
 ### Gatsby + React + Redux によるゼロリスク・ハイリターンな個人開発
 @taumuさんからは個人開発のReactアプリケーション拡張時の技術選定とGatsbyJSとReduxを組み合わせた構成の実現について発表いただきました。既存のReactアプリケーションをGatsbyJSにマイグレーションした事例は参考になりました。
 
-`slide: https://speakerdeck.com/taumu/gatsby-plus-react-plus-redux-niyoruzerorisukuhairitannage-ren-kai-fa`
+<Slide id='d4e7ad66617f445eb25656f897bde204' />
 
 ## さいごに
 今回も参加者から様々なJavaScriptの知見が共有されて、良いイベントになったと思います。次回は運営のほうで、テーマを決めて、もくもくする会を計画しています。

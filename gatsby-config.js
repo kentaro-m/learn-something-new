@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: `Learn Something New`,
+  title: `Knowledge is power.`,
   author: `Kentaro Matsushita`,
   description: `Knowledge is power.`,
   siteUrl: `https://blog.kentarom.com`,
@@ -14,7 +14,6 @@ module.exports = {
   siteMetadata,
   plugins: [
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-use-dark-mode`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -35,79 +34,32 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-mdx-embed`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.mdx`, `.md`],
         plugins: [
-          {
-            resolve: `@raae/gatsby-remark-oembed`,
-            options: {
-              usePrefix: ["slide", "oembed"],
-            }
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              // Class prefix for <pre> tags containing syntax highlighting;
-              // defaults to 'language-' (eg <pre class="language-js">).
-              // If your site loads Prism into the browser at runtime,
-              // (eg for use with libraries like react-live),
-              // you may use this to prevent Prism from re-processing syntax.
-              // This is an uncommon use-case though;
-              // If you're unsure, it's best to use the default value.
-              classPrefix: "language-",
-              // This is used to allow setting a language for inline code
-              // (i.e. single backticks) by creating a separator.
-              // This separator is a string and will do no white-space
-              // stripping.
-              // A suggested value for English speakers is the non-ascii
-              // character '›'.
-              inlineCodeMarker: null,
-              // This lets you set up language aliases.  For example,
-              // setting this to '{ sh: "bash" }' will let you use
-              // the language "sh" which will highlight using the
-              // bash highlighter.
-              aliases: {},
-              // This toggles the display of line numbers globally alongside the code.
-              // To use it, add the following line in src/layouts/index.js
-              // right after importing the prism color scheme:
-              //  `require("prismjs/plugins/line-numbers/prism-line-numbers.css");`
-              // Defaults to false.
-              // If you wish to only show line numbers on certain code blocks,
-              // leave false and use the {numberLines: true} syntax below
-              showLineNumbers: false,
-              // If setting this to true, the parser won't handle and highlight inline
-              // code used in markdown i.e. single backtick code like `this`.
-              noInlineHighlight: false,
-            },
-          },
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 680,
-              quality: 70
+              maxWidth: 700,
             },
           },
+        ],
+        gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: `gatsby-remark-images`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              maxWidth: 700,
             },
           },
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -122,15 +74,9 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     `gatsby-plugin-twitter`,
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-feed-mdx`,
       options: {
       query: `
         {
@@ -146,32 +92,32 @@ module.exports = {
       `,
       feeds: [
         {
-          serialize: ({ query: { site, allMarkdownRemark } }) => {
-            return allMarkdownRemark.edges.map(edge => {
+          serialize: ({ query: { site, allMdx } }) => {
+            return allMdx.edges.map(edge => {
               return Object.assign({}, edge.node.frontmatter, {
                 description: edge.node.excerpt,
                 date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ "content:encoded": edge.node.html }],
+                url: site.siteMetadata.siteUrl + edge.node.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.slug,
+                custom_elements: [{ "content:encoded": edge.node.html }]
               })
             })
           },
           query: `
             {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] }
+              allMdx(
+                sort: {fields: [frontmatter___date], order: DESC}
+                limit: 1
               ) {
                 edges {
                   node {
-                    excerpt
-                    html
-                    fields { slug }
+                    slug
                     frontmatter {
                       title
                       date
                     }
+                    excerpt
+                    html
                   }
                 }
               }

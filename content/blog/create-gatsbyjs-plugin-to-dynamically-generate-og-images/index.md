@@ -4,7 +4,7 @@ date: '2020-02-11T12:59:00.000Z'
 ---
 QiitaやDev.toなどのブログサービスでは記事タイトルと著者情報をベースに、SNSにシェアされる際に展開されるOGP画像を自動的に生成してくれます。本記事ではGatsbyJS製のブログで同じ機能の実装にチャレンジしたので、その模様を紹介したいと思います。
 
-`oembed: https://twitter.com/_kentaro_m/status/1226199403498618880`
+<Tweet tweetLink="_kentaro_m/status/1226199403498618880" />
 
 ## OGP画像の生成方法
 OGP画像の動的生成は大きく3つの方法で実現できます。
@@ -104,7 +104,7 @@ run()
 
 画像生成処理は[node-canvas](https://github.com/Automattic/node-canvas)というサーバーサイドのNode.jsでCanvas APIを操作するライブラリを駆使して実現しています。詳細な処理フローや実装のハマりポイントは先日のKanazawa.js meetup #1で発表したので、下記の資料を参照ください。
 
-`slide: https://speakerdeck.com/kentarom/create-a-node-dot-js-module-for-generating-open-graph-image`
+<Slide id='b81766906fec4f229e905d300e96e53b' />
 
 ## GatsbyJSプラグインの作成
 ブログの記事情報からOGP画像を生成するために専用のGatsbyJSプラグインを作成しました。

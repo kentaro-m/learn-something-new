@@ -1,11 +1,13 @@
-// custom typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
-import 'typeface-notosans-jp'
-import '@fortawesome/fontawesome-svg-core/styles.css'
 import React from 'react'
-import { ThemeProvider } from './src/contexts/theme-provider'
+import { ChakraProvider, CSSReset } from '@chakra-ui/react'
+import { MDXEmbedProvider } from 'mdx-embed'
+import { theme } from './src/theme/theme'
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider>{element}</ThemeProvider>
+  <ChakraProvider theme={theme}>
+    <CSSReset />
+    <MDXEmbedProvider>
+      {element}
+    </MDXEmbedProvider>
+  </ChakraProvider>
 )
