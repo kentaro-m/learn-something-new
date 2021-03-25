@@ -40,6 +40,9 @@ const Seo = ({ description, title, slug}: SEOProps) => (
         const metaDescription =
           description || site.siteMetadata.description
         const pageUrl = slug ? site.siteMetadata.siteUrl + slug : site.siteMetadata.siteUrl + '/'
+        const thumbnailUrl = title ?
+          `https://res.cloudinary.com/kentarom/image/upload/c_fit,l_text:eig1clffyunvyzqioqdr.otf_64:${encodeURIComponent(title)},co_rgb:D6BCFA,w_1000,y_-100,w_1000/v1616667308/Frame_12_pvvs3k.png` :
+          `https://res.cloudinary.com/kentarom/image/upload/c_fit,l_text:eig1clffyunvyzqioqdr.otf_64:${encodeURIComponent(site.siteMetadata.title)},co_rgb:D6BCFA,w_1000,y_-100,w_1000/v1616667308/Frame_12_pvvs3k.png`
         return (
           <Helmet
             htmlAttributes={{
@@ -72,6 +75,10 @@ const Seo = ({ description, title, slug}: SEOProps) => (
                 content: metaDescription,
               },
               {
+                property: `og:image`,
+                content: thumbnailUrl,
+              },
+              {
                 property: `og:image:width`,
                 content: `1200`,
               },
@@ -90,6 +97,10 @@ const Seo = ({ description, title, slug}: SEOProps) => (
               {
                 name: `twitter:card`,
                 content: `summary_large_image`,
+              },
+              {
+                name: `twitter:image`,
+                content: thumbnailUrl,
               },
               {
                 name: `twitter:creator`,
