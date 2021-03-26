@@ -13,6 +13,7 @@ const siteMetadata = {
 module.exports = {
   siteMetadata,
   plugins: [
+    `gatsby-plugin-typegen`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-google-analytics`,

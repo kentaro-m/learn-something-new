@@ -34,7 +34,7 @@ type Data = {
 }
 
 const Seo = ({ description, title, slug}: SEOProps) => (
-    <StaticQuery
+    <StaticQuery<GatsbyTypes.DefaultSEOQueryQuery>
       query={detailsQuery}
       render={({ site }: Data) => {
         const metaDescription =

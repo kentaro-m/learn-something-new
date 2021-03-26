@@ -1,51 +1,28 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql, PageProps } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
-import { Heading, Text, Box, Flex } from '@chakra-ui/react'
+import { Heading, Text, Box } from '@chakra-ui/react'
 
-type BlogIndexProps = {
-  data: {
-    allMdx: {
-      edges: {
-        node: {
-          slug: string
-          id: string
-          frontmatter: {
-            title: string
-            date: string
-          }
-        }
-      }[]
-    }
-    site: {
-      siteMetadata: {
-        title: string
-      }
-    }
-  }
-  location: Location
-}
-
-const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
-    const siteTitle = data.site.siteMetadata.title
+const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, location }) => {
+    const siteTitle = data.site?.siteMetadata?.title
     const posts = data.allMdx.edges
 
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} title={siteTitle || ''}>
         <Seo/>
         <Box>
           {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.slug
+            const title = node.frontmatter?.title || node.slug
             return (
               <Box mb={10} key={node.slug}>
                 <Heading color='purple.200' as='h2' size='md' lineHeight='base' mb={2}>
-                  <Link style={{ boxShadow: `none` }} to={node.slug}>
+                  <Link style={{ boxShadow: `none` }} to={node.slug || '#'}>
                     {title}
                   </Link>
                 </Heading>
                 <Text>
-                  {node.frontmatter.date}
+                  {node.frontmatter?.date}
                 </Text>
               </Box>
             )
@@ -58,7 +35,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  query IndexPage {
     site {
       siteMetadata {
         title
