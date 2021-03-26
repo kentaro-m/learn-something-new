@@ -1,15 +1,16 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Flex, Box, Text, Link, Image, Wrap, WrapItem } from '@chakra-ui/react'
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { Box, Text, Link, Image, Wrap, WrapItem } from '@chakra-ui/react'
+import { FileNode } from 'gatsby-plugin-image/dist/src/components/hooks';
 
 function Bio() {
   return (
-    <StaticQuery
+    <StaticQuery<GatsbyTypes.BioQuery>
       query={bioQuery}
       render={data => {
-        const { author } = data.site.siteMetadata
-        const image = getImage(data.avatar)
+        const author = data.site?.siteMetadata?.author
+        const image = getImage(data.avatar as FileNode)
         return (
           <Wrap spacing={6} justify='center'>
             <WrapItem>
@@ -46,7 +47,7 @@ function Bio() {
   );
 }
 
-const bioQuery = graphql`query BioQuery {
+const bioQuery = graphql`query Bio {
   avatar: file(absolutePath: {regex: "/avatar.jpeg/"}) {
     childImageSharp {
       gatsbyImageData(

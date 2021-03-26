@@ -1,47 +1,16 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import Bio from '../components/Bio'
+import { graphql, PageProps } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
-import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Text, Heading, Box } from '@chakra-ui/react'
 
-const Divider = styled.div`
-  &::before {
-    content: '...';
-    font-size: 64px;
-    position: relative;
-    top: -53px;
-  }
-`
-
-type BlogPostTemplateProps = {
-  data: {
-    mdx: {
-      frontmatter: {
-        title: string
-        date: string
-      }
-      body: any
-      slug: string
-      excerpt: string
-    }
-    site: {
-      siteMetadata: {
-        title: string
-      }
-    }
-  }
-  location: Location
-}
-
-const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) => {
+const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.PostPageQuery>> = ({ data, location }) => {
     const post = data.mdx
-    const siteTitle = data.site.siteMetadata.title
+    const siteTitle = data.site?.siteMetadata?.title
 
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} title={siteTitle || ''}>
         <Box
           sx={{
             ':not(li) > ul': {
@@ -58,16 +27,16 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
             },
           }}
         >
-          <Seo title={post.frontmatter.title} description={post.excerpt} slug={post.slug} />
+          <Seo title={post?.frontmatter?.title} description={post?.excerpt} slug={post?.slug} />
           <Box as='article'>
             <Heading as='h1' size='lg' lineHeight='base' mb={4}>
-              {post.frontmatter.title}
+              {post?.frontmatter?.title}
             </Heading>
             <Text mb={8}>
-              {post.frontmatter.date}
+              {post?.frontmatter?.date}
             </Text>
           </Box>
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          <MDXRenderer>{data?.mdx?.body || 'fallback'}</MDXRenderer>
         </Box>
       </Layout>
     )
@@ -76,7 +45,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data, location }) =
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query PostPage($slug: String!) {
     site {
       siteMetadata {
         title

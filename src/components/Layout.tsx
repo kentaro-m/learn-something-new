@@ -15,7 +15,7 @@ import '@fontsource/noto-sans-jp/400.css'
 type LayoutProps = {
   location: Location
   title: string
-  children: JSX.Element[]
+  children: React.ReactNode
 }
 
 const components = {
