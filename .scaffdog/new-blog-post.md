@@ -1,16 +1,18 @@
 ---
 name: 'new-blog-post'
-message: 'Please input slug of blog post.'
-root: '.'
-output: 'content/blog'
+root: './content/blog'
+output: '**/*'
 ignore: []
+questions:
+  title: 'Please enter a post title.'
+  slug: 'Please enter a post slug.'
 ---
 
-# content/blog/{{ input }}/index.md`
+# `{{ inputs.slug }}/index.md`
 
 ```markdown
 ---
-title: XXX
-date: '{{ 'new Date().toISOString()' | eval }}'
+title: {{ inputs.title }}
+date: '{{ date }}'
 ---
 ```
