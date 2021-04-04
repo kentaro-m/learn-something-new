@@ -16,7 +16,7 @@ date: '2021-04-03T17:38:35.214Z'
   - テキストの描画位置は座標指定のため、細部の調整が難しい
   - 行折返しは独自の計算ロジックがあり、コードの保守コストが高い
 - ブログのビルド速度が遅い
-  - ビルドタイミングで画像生成を行うため、ビルド速度が低下する
+  - ブログビルドタイミングで画像生成を行うため、ビルド速度が低下する
 
 今回、[Cloudinary](https://cloudinary.com/)という画像管理サービスを利用することで、これらの課題を解決することができました。
 
@@ -43,14 +43,19 @@ date: '2021-04-03T17:38:35.214Z'
 ## OGP画像生成のやり方
 
 ### 背景画像のデザイン
-記事タイトルのテキストを追加する対象の背景画像を最初に準備しました。FigmaでOGP画像の推奨サイズである幅1200px × 高さ630pxで作ります。
+記事タイトルを追加する対象の背景画像を最初に準備しました。FigmaでOGP画像の推奨サイズである幅1200px × 高さ630pxで作ります。
 
 左側が最終的に生成されるOGP画像デザインで、右側がCloudinaryで使用する背景画像です。
 
 ![](./figma.png)
 
+### 画像のアップロード
+背景画像のアップロードはMedia Libraryの画面の右上の `Upload` ボタンから行います。そして、画像を選択して、メニューから `Edit`を押下すると、画像編集画面に移動します。
+
+![](./upload_image_file.png)
+
 ### 画像へのテキスト追加
-画像へのテキスト追加はテキストオーバーレイ機能を利用します。
+画像へのテキスト追加は[テキストオーバーレイ機能](https://support.cloudinary.com/hc/en-us/articles/360013245620-Adding-Text-Overlays-to-Images-with-Cloudinary-s-Management-Console)を利用します。
 
 ![](./edit.png)
 
@@ -99,7 +104,7 @@ Cloudinaryのテキストオーバーレイ機能ではGoogle Fontのサポー�
 
 本サイトでは`Noto Sans JP`を利用したかったので、Cloudinaryへのカスタムフォントの導入に取り組みました。
 
-公式ドキュメントを参考にしながら、下記の3ステップを行いました。
+[公式ドキュメント](https://cloudinary.com/documentation/image_transformations#using_custom_fonts_for_text_overlays)を参考にしながら、下記の3ステップを行いました。
 
 1. Upload Presetsの設定追加
 2. Upload Presetsの有効化
