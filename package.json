@@ -7,8 +7,8 @@
     "url": "https://github.com/kentaro-m/learn-something-new/issues"
   },
   "dependencies": {
-    "@chakra-ui/gatsby-plugin": "^2.0.0",
-    "@chakra-ui/react": "^1.4.1",
+    "@chakra-ui/gatsby-plugin": "^2.0.2",
+    "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@fontsource/montserrat": "^4.2.2",
