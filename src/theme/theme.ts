@@ -6,15 +6,14 @@ export const theme = extendTheme({
     useSystemColorMode: true,
   },
   fonts: {
-    heading: "'Noto Sans JP'",
-    body: "'Noto Sans JP'"
+    heading: "'M PLUS 2'",
+    body: "'M PLUS 2'"
   },
   styles: {
     global: {
       body: {
         bg: 'gray.800',
         color: 'gray.200',
-        fontFeatureSettings: 'palt',
         letterSpacing: '.05em',
       },
     }

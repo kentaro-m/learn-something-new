@@ -26,8 +26,8 @@ import Slide from './Slide'
 import Bio from './Bio'
 
 import '@fontsource/montserrat/800.css'
-import '@fontsource/noto-sans-jp/700.css'
-import '@fontsource/noto-sans-jp/400.css'
+import '@fontsource/m-plus-2/700.css'
+import '@fontsource/m-plus-2/400.css'
 
 type LayoutProps = {
   location: Location
