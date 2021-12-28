@@ -38,9 +38,9 @@ type LayoutProps = {
 const components = {
   a: (props: any) => <Link {...props}>{props.children}</Link>,
   p: ({ children }: any) => <Text mb={8} lineHeight='tall' >{children}</Text>,
-  h2: ({ children }: any) => <Heading as='h2' size='lg' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
-  h3: ({ children }: any) => <Heading as='h3' size='md' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
-  h4: ({ children }: any) => <Heading as='h4' size='sm' fontWeight='bold' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
+  h2: ({ children }: any) => <Heading as='h2' fontSize='2xl' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
+  h3: ({ children }: any) => <Heading as='h3' fontSize='xl' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
+  h4: ({ children }: any) => <Heading as='h4' fontSize='lg' fontWeight='bold' lineHeight='base' mt={16} mb={8} >{children}</Heading>,
   ul: ({ children }: any) => <UnorderedList>{children}</UnorderedList>,
   ol: ({ children }: any) => <OrderedList>{children}</OrderedList>,
   li: ({ children }: any) => <ListItem mt={1} mb={1}>{children}</ListItem>,
