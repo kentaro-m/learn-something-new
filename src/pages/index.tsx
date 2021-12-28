@@ -18,7 +18,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, loca
               <Link style={{boxShadow: `none`}} to={node.slug || '#'}>
                 <Flex _hover={{opacity: '0.9'}} height={175} bg='gray.700' mb={10} alignItems='center' justifyContent='left' borderRadius={7}>
                 <Box key={node.slug} p={8}>
-                  <Heading color='purple.200' as='h2' fontSize='lg' lineHeight='base' mb={2}>
+                  <Heading color='purple.200' as='h2' fontSize='xl' lineHeight='base' mb={2}>
                     {title}
                   </Heading>
                   <Text>

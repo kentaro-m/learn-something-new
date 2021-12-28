@@ -29,7 +29,7 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.PostPageQuery>> = ({ data
         >
           <Seo title={post?.frontmatter?.title} description={post?.excerpt} slug={post?.slug} />
           <Box as='article'>
-            <Heading as='h1' size='lg' lineHeight='base' mb={4}>
+            <Heading as='h1' fontSize='2xl' lineHeight='base' mb={4}>
               {post?.frontmatter?.title}
             </Heading>
             <Text mb={8}>
