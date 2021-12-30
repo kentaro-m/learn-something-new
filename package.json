@@ -12,7 +12,6 @@
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@fontsource/m-plus-2": "^4.5.0",
-    "@fontsource/montserrat": "^4.5.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@raae/gatsby-remark-oembed": "^0.1.1",
@@ -45,7 +44,8 @@
     "prismjs": "^1.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@types/mdx-js__react": "1.5.5",
