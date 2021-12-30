@@ -1,25 +1,23 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import { Box, Text, Link } from '@chakra-ui/react'
+import { Box, Link, Icon } from '@chakra-ui/react'
+import { FaLightbulb } from 'react-icons/fa'
 
-type HeaderProps = {
-  location: Location
-  title: string
-}
-
-const Header: React.FC<HeaderProps> = ({ title }) => (
-  <Box mt={8}>
-    <Text
-      as='h1'
-      fontSize={['2xl', '4xl']}
-      fontWeight='bold'
-      fontFamily='Montserrat'
-      textAlign='center'
+const Header: React.FC = () => (
+  <Box mt={10} textAlign='center'>
+    <Link
+      as={GatsbyLink}
+      to='/'
+      color='gray.200'
+      _hover={{
+        textDecoration: 'none',
+        color: 'yellow.400', 
+      }}
+      fontSize='5xl'
+      aria-label='ホーム'
     >
-      <Link as={GatsbyLink} to='/' color='gray.200' _hover={{ textDecoration: 'none' }}>
-        {title}
-      </Link>
-    </Text>
+      <Icon as={FaLightbulb}/>
+    </Link>
   </Box>
 )
 
