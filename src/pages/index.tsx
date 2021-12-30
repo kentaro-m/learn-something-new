@@ -16,7 +16,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data, loca
             const title = node.frontmatter?.title || node.slug
             return (
               <Link style={{boxShadow: `none`}} to={node.slug || '#'}>
-                <Flex _hover={{opacity: '0.9'}} height={175} bg='gray.700' mb={10} alignItems='center' justifyContent='left' borderRadius={7}>
+                <Flex _hover={{opacity: '0.9'}} height={175} bg='gray.700' ml={[5, 0]} mr={[5, 0]}  mb={10} alignItems='center' justifyContent='left' borderRadius={7}>
                 <Box key={node.slug} p={8}>
                   <Heading color='purple.200' as='h2' fontSize='xl' lineHeight='base' mb={2}>
                     {title}
