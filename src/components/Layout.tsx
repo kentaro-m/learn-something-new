@@ -25,7 +25,6 @@ import CodeBlock from './CodeBlock'
 import Slide from './Slide'
 import Bio from './Bio'
 
-import '@fontsource/montserrat/800.css'
 import '@fontsource/m-plus-2/700.css'
 import '@fontsource/m-plus-2/400.css'
 
@@ -66,17 +65,17 @@ const Divider = styled.div`
   }
 `
 
-const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <MDXProvider components={components}>
-      <Container maxW="container.md">
-        <Header location={location} title={title} />
-        <Flex height='32px' justifyContent='center' mt={8} mb={8}>
+      <Container maxW="container.md" p={0}>
+        <Header />
+        <Flex height='32px' justifyContent='center' mt={5} mb={10}>
           <Divider />
         </Flex>
         {children}
-        <Flex height='32px' justifyContent='center' mt={4} mb={10}>
+        <Flex height='32px' justifyContent='center' mt={10} mb={10}>
           <Divider />
         </Flex>
         <Bio />
