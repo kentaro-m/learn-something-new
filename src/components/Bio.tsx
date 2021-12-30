@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Box, Text, Link, Image, Wrap, WrapItem } from '@chakra-ui/react'
 import { FileNode } from 'gatsby-plugin-image/dist/src/components/hooks';
 
@@ -12,15 +12,25 @@ function Bio() {
         const author = data.site?.siteMetadata?.author
         const image = getImage(data.avatar as FileNode)
         return (
-          <Wrap spacing={6} justify='center'>
+          <Wrap
+            spacing={6}
+            justify='center'
+            sx={{
+              '> ul': {
+                margin: 0,
+              }
+            }}
+          >
             <WrapItem>
               <Box>
-            {image && <Image
+            {image && 
+            <Image
                 as={GatsbyImage}
                 image={image}
                 alt={author}
                 borderRadius='50%'
-              />}
+              />
+              }
               </Box>
             </WrapItem>
             <WrapItem>
