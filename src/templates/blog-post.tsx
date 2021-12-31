@@ -36,7 +36,7 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.PostPageQuery>> = ({ data
               {post?.frontmatter?.date}
             </Text>
           </Box>
-          <Box bg='gray.700' p={[7, 10]} borderRadius={7} __css={{
+          <Box bg='gray.700' p={[7, 10]} borderRadius={[0, 7]} __css={{
             '> ul': {
               mb: 8,
             }
