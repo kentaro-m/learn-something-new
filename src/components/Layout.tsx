@@ -25,9 +25,6 @@ import CodeBlock from './CodeBlock'
 import Slide from './Slide'
 import Bio from './Bio'
 
-import '@fontsource/m-plus-2/700.css'
-import '@fontsource/m-plus-2/400.css'
-
 type LayoutProps = {
   location: Location
   title: string
