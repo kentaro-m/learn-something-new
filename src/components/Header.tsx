@@ -18,7 +18,7 @@ const Header: React.FC = () => (
         }}
         fontSize='2xl'
         fontWeight={700}
-        fontFamily='Source Code Pro'
+        fontFamily="'Source Code Pro'"
       >
         KNOWLEDGE_IS_POWER
       </Link>
