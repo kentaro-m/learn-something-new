@@ -56,9 +56,9 @@ const components = {
 const Divider = styled.div`
   &::before {
     content: '...';
-    font-size: 64px;
+    font-size: 50px;
     position: relative;
-    top: -53px;
+    top: -34px;
   }
 `
 
@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <Divider />
         </Flex>
         <Bio />
-        <Box mb={20} />
+        <Box mb={10} />
       </Container>
     </MDXProvider>
   )
