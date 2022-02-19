@@ -29,16 +29,20 @@ const BlogPostTemplate: React.FC<PageProps<GatsbyTypes.PostPageQuery>> = ({ data
         >
           <Seo title={post?.frontmatter?.title} description={post?.excerpt} slug={post?.slug} />
           <Box as='article'>
-            <Heading as='h1' fontSize='2xl' lineHeight='base' mb={4} ml={[7, 10]} mr={[7, 10]}>
+            <Heading as='h1' textAlign='center' fontSize='2xl' lineHeight='base' mb={4} ml={[7, 10]} mr={[7, 10]}>
               {post?.frontmatter?.title}
             </Heading>
-            <Text mb={8} ml={[7, 10]} mr={[7, 10]}>
+            <Text textAlign='center' mb={8} ml={[7, 10]} mr={[7, 10]}>
               {post?.frontmatter?.date}
             </Text>
           </Box>
           <Box bg='gray.700' p={[7, 10]} borderRadius={[0, 7]} __css={{
             '> ul': {
               mb: 8,
+            },
+            '> ol': {
+              mb: 8,
+              ml: 6,
             }
           }}>
             <MDXRenderer>{data?.mdx?.body || 'fallback'}</MDXRenderer>
