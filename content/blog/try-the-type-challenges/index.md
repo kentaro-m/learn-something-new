@@ -1,5 +1,5 @@
 ---
-title: Kanazawa.jsでtype-challengesに挑戦した
+title: 'Kanazawa.jsでtype-challengesに挑戦した'
 date: '2022-01-29T11:16:06.229Z'
 ---
 
