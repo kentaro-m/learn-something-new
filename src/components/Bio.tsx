@@ -43,10 +43,10 @@ function Bio() {
                   {author}
                 </Link>
                 <Text fontSize='sm' lineHeight='tall'>
-                  👨‍💻 金沢のゲーム会社で働くWeb Developer
+                  👨‍💻 金沢のゲーム会社で働くSoftware Engineer
                 </Text>
                 <Text fontSize='sm' lineHeight='tall'>
-                  ❤️ React, TypeScript and GraphQL
+                  ❤️ React、TypeScript、GraphQLをよく触ってます
                 </Text>
               </Box>
             </WrapItem>
@@ -61,8 +61,8 @@ const bioQuery = graphql`query Bio {
   avatar: file(absolutePath: {regex: "/avatar.jpeg/"}) {
     childImageSharp {
       gatsbyImageData(
-        width: 100
-        height: 100
+        width: 75
+        height: 75
         layout: FIXED
         placeholder: BLURRED
         formats: [AUTO, WEBP, AVIF]
