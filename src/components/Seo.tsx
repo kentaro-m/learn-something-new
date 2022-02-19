@@ -36,20 +36,20 @@ type Data = {
 const Seo = ({ description, title, slug}: SEOProps) => (
     <StaticQuery<GatsbyTypes.DefaultSEOQueryQuery>
       query={detailsQuery}
-      render={({ site }: Data) => {
+      render={({ site }) => {
         const metaDescription =
-          description || site.siteMetadata.description
-        const pageUrl = slug ? site.siteMetadata.siteUrl + slug : site.siteMetadata.siteUrl + '/'
+          description || site?.siteMetadata?.description
+        const pageUrl = slug ? site?.siteMetadata?.siteUrl + slug : site?.siteMetadata?.siteUrl + '/'
         const thumbnailUrl = title ?
           `https://res.cloudinary.com/kentarom/image/upload/c_fit,l_text:eig1clffyunvyzqioqdr.otf_64:${encodeURIComponent(title)},co_rgb:D6BCFA,w_1000,y_-100,w_1000/v1616667308/Frame_12_pvvs3k.png` :
-          `https://res.cloudinary.com/kentarom/image/upload/c_fit,l_text:eig1clffyunvyzqioqdr.otf_64:${encodeURIComponent(site.siteMetadata.title)},co_rgb:D6BCFA,w_1000,y_-100,w_1000/v1616667308/Frame_12_pvvs3k.png`
+          `https://res.cloudinary.com/kentarom/image/upload/c_fit,l_text:eig1clffyunvyzqioqdr.otf_64:${encodeURIComponent(site?.siteMetadata?.title || '')},co_rgb:D6BCFA,w_1000,y_-100,w_1000/v1616667308/Frame_12_pvvs3k.png`
         return (
           <Helmet
             htmlAttributes={{
-              lang: site.siteMetadata.lang,
+              lang: site?.siteMetadata?.lang,
             }}
-            title={title ? title : site.siteMetadata.title}
-            titleTemplate={title ? `%s | ${site.siteMetadata.title}` : site.siteMetadata.title}
+            title={title ? title : site?.siteMetadata?.title}
+            titleTemplate={title ? `%s | ${site?.siteMetadata?.title}` : site?.siteMetadata?.title}
             link={[
               {
                 rel: 'canonical',
@@ -68,6 +68,10 @@ const Seo = ({ description, title, slug}: SEOProps) => (
               {
                 rel: 'stylesheet',
                 href: 'https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;700&display=swap',
+              },
+              {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap'
               }
             ]}
             meta={[
@@ -105,7 +109,7 @@ const Seo = ({ description, title, slug}: SEOProps) => (
               },
               {
                 property: `fb:app_id`,
-                content: site.siteMetadata.facebookAppId,
+                content: site?.siteMetadata?.facebookAppId,
               },
               {
                 name: `twitter:card`,
@@ -117,7 +121,7 @@ const Seo = ({ description, title, slug}: SEOProps) => (
               },
               {
                 name: `twitter:creator`,
-                content: `@${site.siteMetadata.social.twitter}`,
+                content: `@${site?.siteMetadata?.social?.twitter}`,
               },
               {
                 name: `twitter:title`,
