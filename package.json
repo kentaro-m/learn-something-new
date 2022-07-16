@@ -15,7 +15,7 @@
     "@mdx-js/react": "^1.6.22",
     "@raae/gatsby-remark-oembed": "^0.1.1",
     "framer-motion": "^5.4.5",
-    "gatsby": "^4.6.0",
+    "gatsby": "~4.6.0",
     "gatsby-plugin-emotion": "^7.6.0",
     "gatsby-plugin-feed-mdx": "^1.1.0",
     "gatsby-plugin-google-analytics": "^4.6.0",
