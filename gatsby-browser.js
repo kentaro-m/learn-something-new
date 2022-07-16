@@ -1,13 +1,18 @@
 import React from 'react'
 import { ChakraProvider, CSSReset } from '@chakra-ui/react'
-import { MDXEmbedProvider } from 'mdx-embed'
+import { MDXProvider } from '@mdx-js/react'
 import { theme } from './src/theme/theme'
+import { Tweet } from 'mdx-embed'
+
+const components = {
+  Tweet,
+}
 
 export const wrapRootElement = ({ element }) => (
   <ChakraProvider theme={theme}>
     <CSSReset />
-    <MDXEmbedProvider>
+    <MDXProvider components={components}>
       {element}
-    </MDXEmbedProvider>
+    </MDXProvider>
   </ChakraProvider>
 )
